@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  a,
+  button {
+    display: inline-block;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .color-green {
+    color: #52B49F;
+  }
+
+  .color-darkergreen {
+    color: #349f88;
+  }
+
+  .color-blue {
+    color: #3399FF;
+  }
+
+  .color-red {
+    color: #FF5F58;
+  }
+
+  /* .color-primary {
+    color: #188eb6;
+  }
+
+  .color-secondary {
+    color: #c59339;
+  }
+
+  .bg-light {
+    background-color: #f3eac7;
+  } */
+}
+
+@layer components {
+
+  /* button style ----------- */
+  .button-green {
+    background-color: #52B49F;
+    font-size: 14px;
+    min-height: 45px;
+    @apply px-5 text-white rounded font-normal inline-flex items-center justify-center
+  }
+
+  .button-dark {
+    background-color: #4F4F4F;
+    font-size: 14px;
+    min-height: 45px;
+    @apply px-5 text-white rounded font-normal inline-flex items-center justify-center
+  }
+
+  .button-outline-green {
+    background-color: transparent;
+    font-size: 14px;
+    min-height: 45px;
+    border: 1px solid #52B49F;
+    color: #52B49F;
+    @apply px-5 rounded font-normal inline-flex items-center justify-center
+  }
+
+  .button-outline-green-icon {
+    @apply button-outline-green relative pl-4 pr-10 justify-start;
+  }
+  
+  .button-outline-green-icon > i {
+    @apply absolute right-4
+  }
+
+  /* table style ----------- */
+  .table-style-1 {
+    @apply block w-full overflow-x-auto
+  }
+
+  .table-style-1 table {
+    @apply w-full border border-solid border-gray-200 text-center
+  }
+
+  .table-style-1 table th, .table-style-1 table td {
+    @apply border border-solid border-gray-200 py-2 px-1 text-xs font-normal
+  }
+
+  .table-style-1 table thead tr {
+    background-color: #4F4F4F;
+    color: #fff;
+  }
+
+  /* input style ----------- */
+  .input-style-1 {
+    @apply relative
+  }
+  .input-style-1 input {
+    @apply bg-gray-100 h-10 w-full pl-4 pr-10 border border-solid border-gray-200 rounded
+  }
+
+  .input-style-1 .unit {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500
+  }
+
+  .input-style-2 input {
+    @apply bg-white h-10 w-full px-4 border border-solid border-gray-200 rounded shadow-inner
+  }
+
+  .input-style-3 {
+    @apply relative
+  }
+  .input-style-3 input {
+    @apply bg-white h-9 w-full pr-10 border-b border-solid border-gray-400 focus:outline-none
+  }
+
+  .input-style-3 .unit {
+    @apply absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-500
+  }
+
+  /* radio style ----------- */
+  .radio-style-1 label {
+    @apply inline-flex items-center text-sm
+  }
+
+  .radio-style-1 label input[type=checkbox],
+  .radio-style-1 label input[type=radio] {
+    font-size: inherit;
+    width: 1em;
+    color: inherit;
+    font-family: "Font Awesome 6 Free";
+    transition: 300ms ease-out;
+    @apply relative appearance-none m-0 outline-none
+  }
+
+  .radio-style-1 label input[type=checkbox]::after,
+  .radio-style-1 label input[type=radio]::after {
+    content: "\f111";
+    width: 1em;
+    @apply text-gray-300 text-lg text-center inline-block
+  }
+
+  .radio-style-1 label input[type=checkbox]:checked::after,
+  .radio-style-1 label input[type=radio]:checked::after {
+    @apply color-red font-black
+  }
+
+  .radio-style-1 label input[type=checkbox]:active,
+  .radio-style-1 label input[type=radio]:active {
+    transform: scale(0.6);
+  }
+
+  .radio-style-1 label input[type=checkbox] + span,
+  .radio-style-1 label input[type=radio] + span {
+    margin-left: 10px;
+  }
+
+  .radio-style-1 label input[type=checkbox]:checked::after {
+    content: "\f058";
+  }
+
+  .radio-style-1 label input[type=radio]:checked::after {
+    content: "\f192";
+  }
+  
+  /* card style ----------- */
+  .card-style-1 {
+    @apply shadow-xl p-5 rounded-2xl border border-solid border-gray-100 bg-white
+  }
+
+  .card-style-2 {
+    border-color: #52B49F;
+    @apply rounded-2xl bg-white shadow-xl
+  }
+
+  .card-style-2 .header {
+    background-color: #52B49F;
+    @apply text-center p-3 rounded-2xl rounded-b-none
+  }
+
+  .card-style-2 .header .title {
+    @apply text-white text-lg
+  }
+
+  .card-style-2 .body {
+    @apply py-6 px-4
+  }
+
+  .card-style-3 {
+    @apply p-10 rounded-2xl border-2 border-dotted border-gray-400 bg-gray-100 flex items-center justify-center flex-col
+  }
+
+  .card-style-4 {
+    @apply relative
+  }
+
+  .card-style-4 .header {
+    @apply py-2
+  }
+
+  .card-style-4 .header .title {
+    @apply font-medium
+  }
+
+  .card-style-4 .header .more {
+    @apply absolute top-0 right-0 text-gray-500 text-lg w-10 h-10
+  }
+
+  .card-style-4 .header .more-nav {
+    @apply absolute right-0 top-9 bg-white rounded border border-solid border-gray-200 z-10
+  }
+
+  .card-style-4 .header .more-nav li {
+    @apply border-b border-solid border-gray-200 last:border-b-0
+  }
+
+  .card-style-4 .header .more-nav li a {
+    @apply px-4 py-2 text-xs block text-right
+  }
+
+  .card-style-4 .header .more-nav li a:hover {
+    @apply bg-gray-200
+  }
+
+  .card-style-4 .body {
+    @apply border border-solid border-gray-300 rounded-md p-5 bg-white
+  }
+  
+  /* lightbox style ----------- */
+  .lightbox-style-1 {
+    max-width: 370px;
+    @apply shadow-2xl pt-11 p-10 rounded-2xl relative bg-white w-full
+  }
+
+  .lightbox-style-1 .close {
+    @apply absolute top-5 right-7 text-xl text-gray-400
+  }
+
+  .lightbox-style-1::before {
+    content:'';
+    box-shadow: 0 0 0 10000px rgba(0,0,0,0.8);
+    @apply w-full h-full absolute top-0 left-0 rounded-2xl -z-10
+  }
+
+  /* tips text style ----------- */
+  .tip-text {
+    @apply py-1 px-2 text-sm rounded
+  }
+  .tip-text.warning {
+    background-color: #fcf4c3;
+    color: #da870c;
+  }
+
+  /* RWD setting ----------- */
+  @media screen(sm)  {
+
+  }
+  
+  @media screen(md) {
+    .button-green, .button-dark, .button-outline-green {
+      @apply text-base
+    }
+    .card-style-1 {
+      @apply p-8
+    }
+    .card-style-2 .body {
+      @apply py-5 px-5
+    }
+    .table-style-1 table th, .table-style-1 table td {
+      @apply text-sm
+    }
+  }
+  
+  @media screen(lg)  {
+  
+  }
+
+}
+
+
+
+

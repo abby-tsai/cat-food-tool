@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="../dist/output.css">
+</head>
+
+<body class="pb-7">
+  <main class="container mx-auto px-5">
+
+    <header class="text-left md:text-center pt-12 md:pt-11 pb-11 md:pb-12 relative ">
+      <h1 class="text-xl md:text-3xl font-semibold md:tracking-widest text-gray-800">
+        貓食配方所
+      </h1>
+      <!-- <button type="button" id="open_mySaveButton" class="button-green absolute top-7 md:top-7 right-0 md:right-5">
+        我的收藏
+      </button> -->
+      <a href="index.html" class="text-sm text-gray-500 absolute top-4 md:top-7 left-0 md:left-5"><i
+          class="fa-solid fa-angle-left pr-3"></i> 返回 <i class="fa-solid fa-house"></i></a>
+    </header>
+
+
+    <h3 class="text-xl color-green pb-8 font-semibold text-center">全濕食的分配</h3>
+
+    <div class="flex flex-wrap md:flex-nowrap justify-center md:space-x-6">
+      <div class="basis-full md:basis-2/3 mb-10 md:mb-0">
+        <div class="mathDone card-style-1">
+
+          <div class="flex flex-row flex-wrap md:flex-nowrap md:space-x-12">
+            <div class="basis-full md:basis-1/2">
+              <div class="mb-7">
+                <label class="text-sm md:text-base font-medium block pb-2 relative">請輸入貓咪的體重：
+                  <span
+                    class="alert-catWeight opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">請檢查是否為數字。</span>
+                </label>
+                <div class="input-style-1">
+                  <input type="number" id="catWeight" class="" value="">
+                  <span class="unit">kg</span>
+                </div>
+                <small class="color-red">需減重貓 or 過瘦貓，請輸入目標體重</small>
+              </div>
+
+              <div class="catStatus-box mb-7">
+                <label class="text-base font-medium block pb-3 relative">請勾選貓咪的目前狀態（擇一）：
+                  <span
+                    class="alert-catStatus opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">請勾選貓咪的目前狀態</span>
+                </label>
+                <div class="mb-5">
+                  <p class="text-sm pb-1">- 幼貓</p>
+                  <div class="flex flex-row flex-wrap">
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="10_week">
+                          <input id="10_week" name="radio-cat-status" type="radio" value="10週大">
+                          <span>10週大</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="20_week">
+                          <input id="20_week" name="radio-cat-status" type="radio" value="20週大">
+                          <span>20週大</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="30_week">
+                          <input id="30_week" name="radio-cat-status" type="radio" value="30週大">
+                          <span>30週大</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="40_week">
+                          <input id="40_week" name="radio-cat-status" type="radio" value="40週大">
+                          <span>40週大</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-5">
+                  <p class="text-sm pb-1">- 成貓</p>
+                  <div class="flex flex-row flex-wrap">
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="low_active_not_neuter">
+                          <input id="low_active_not_neuter" name="radio-cat-status" type="radio" value="活動力低(未結紮)">
+                          <span>活動力低(未結紮)</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="low_active_is_neuter">
+                          <input id="low_active_is_neuter" name="radio-cat-status" type="radio" value="活動力低(已結紮)">
+                          <span>活動力低(已結紮)</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="high_active_not_neuter">
+                          <input id="high_active_not_neuter" name="radio-cat-status" type="radio" value="活動力高(未結紮)">
+                          <span>活動力高(未結紮)</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="high_active_is_neuter">
+                          <input id="high_active_is_neuter" name="radio-cat-status" type="radio" value="活動力高(已結紮)">
+                          <span>活動力高(已結紮)</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-5">
+                  <p class="text-sm pb-1">- 懷孕貓</p>
+                  <div class="flex flex-row flex-wrap">
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="pregnancy">
+                          <input id="pregnancy" name="radio-cat-status" type="radio" value="懷孕期">
+                          <span>懷孕期</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="basis-1/2">
+                      <div class="radio-style-1">
+                        <label for="lactation">
+                          <input id="lactation" name="radio-cat-status" type="radio" value="哺乳期">
+                          <span>哺乳期</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="basis-full md:basis-1/2">
+              <p class="text-sm md:text-base font-medium block pb-5 relative">請輸入罐頭的營養成分：
+                <span
+                  class="alert-wetElement opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">
+                  請檢查是否皆填寫，並且皆為數字。
+                </span>
+              </p>
+              <div class="flex flex-row space-x-4">
+                <div class="basis-1/2 mb-6">
+                  <label class="text-sm block pb-2">罐頭重量：</label>
+                  <div class="input-style-1">
+                    <input id="wetGram" type="number">
+                    <span class="unit">g</span>
+                  </div>
+                </div>
+                <div class="basis-1/2 mb-6">
+                  <label class="text-sm block pb-2">蛋白質：</label>
+                  <div class="input-style-1">
+                    <input id="wet_proteinPercent" type="number">
+                    <span class="unit">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row space-x-4">
+                <div class="basis-1/2 mb-6">
+                  <label class="text-sm block pb-2">脂肪：</label>
+                  <div class="input-style-1">
+                    <input id="wet_fatPercent" type="number">
+                    <span class="unit">%</span>
+                  </div>
+                </div>
+                <div class="basis-1/2 mb-6">
+                  <label class="text-sm block pb-2">纖維：</label>
+                  <div class="input-style-1">
+                    <input id="wet_fiberPercent" type="number">
+                    <span class="unit">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row space-x-4">
+                <div class="basis-1/2 mb-6">
+                  <label class="text-sm block pb-2">灰份：</label>
+                  <div class="input-style-1">
+                    <input id="wet_ashPercent" type="number">
+                    <span class="unit">%</span>
+                  </div>
+                </div>
+                <div class="basis-1/2 mb-6">
+                  <label class="text-sm block pb-2">水分：</label>
+                  <div class="input-style-1">
+                    <input id="wet_waterPercent" type="number">
+                    <span class="unit">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row justify-center pt-4 border-t border-gray-300">
+            <div class="basis-full md:basis-1/2">
+              <div class="flex flex-row space-x-4">
+                <button type="button" id="cleanAllValue_btn" class="button-dark basis-1/2">清除</button>
+                <button type="button" id="fullWetMath_btn" class="button-green basis-1/2">開始計算</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="basis-full md:basis-1/3 flex flex-wrap">
+        <div class="card-style-3 w-full" id="card_notFinish">
+          <p class="text-xl text-gray-400">計算結果</p>
+          <p class="text-gray-400">請完成表單</p>
+        </div>
+        <div class="opacity-0 h-0 transition-all w-full" id="card_result">
+          <div class="card-style-2 w-full">
+            <div class="header">
+              <p class="title" data-cata="全濕食分配">全濕食的分配結果</p>
+            </div>
+            <div class="body">
+              <div class="full_wet_block">
+                <div class="pb-8 text-center">
+                  <p class="text-base">
+                    每日需吃
+                    <span class="color-red text-xl border-red-400 border-b-2 px-3" id="wet-item"></span>
+                    顆罐頭，<br>才能達到每日所需熱量。
+                  </p>
+                </div>
+                <div class="table-style-1">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>蛋白質</th>
+                        <th>脂肪</th>
+                        <th>水分</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="bg-gray-100">
+                        <td>每日建議</td>
+                        <td id="daliyProtein"></td>
+                        <td id="daliyFat"></td>
+                        <td id="daliyWater"></td>
+                      </tr>
+                      <tr>
+                        <td>結果</td>
+                        <td class="protein_fullWet_result"></td>
+                        <td class="fat_fullWet_result"></td>
+                        <td class="water_fullWet_result"></td>
+                      </tr>
+                      <tr>
+                        <td>說明</td>
+                        <td class="protein_fullWet_explain"></td>
+                        <td class="fat_fullWet_explain"></td>
+                        <td class="water_fullWet_explain"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="warning_txt_box pt-5"></div>
+              </div>
+              <div class="flex flex-row space-x-4 mt-7">
+                <button type="button" id="editFullWetMath_btn" class="button-dark basis-1/2">重新計算</button>
+                <button type="button" id="save_btn" class="button-green basis-1/2">加入收藏</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center pt-10 md:pt-20 pb-10">
+      <h4 class="text-xl color-green pb-8 font-semibold text-center">其他相關計算</h4>
+      <div class="flex flex-row flex-wrap justify-center md:space-x-4">
+        <a href="full_dry.html" class="button-outline-green-icon basis-full md:basis-1/4 mb-3 md:mb-4">全乾食的分配<i
+            class="fa-solid fa-angle-right"></i></a>
+        <a href="half_wet_dry.html" class="button-outline-green-icon basis-full md:basis-1/4 mb-3 md:mb-4">半濕半乾的分配<i
+            class="fa-solid fa-angle-right"></i></a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 加入收藏 lightbox -->
+  <div id="saveLightBox" class="lightbox-style-1 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden">
+    <label class="text-base font-medium block pb-2">請輸入名稱：</label>
+    <div class="flex flex-row items-center mb-2">
+      <div class="input-style-2 w-2/3 pr-2">
+        <input id="saveName" type="text">
+      </div>
+      <p class="category-text w-1/3 text-sm"></p>
+    </div>
+    <p class="color-blue text-xs">為了方便辨識，建議填寫。<br/>
+      ex:  喵喵 一日所需營養 or
+      喵喵和xx罐頭 半濕食分配
+    </p>
+    <div class="flex flex-row space-x-4 mt-7">
+      <button type="button" class="cancel_btn button-dark basis-1/2">取消</button>
+      <button type="button" class="sbumit_btn button-green basis-1/2">加入</button>
+    </div>
+  </div> 
+
+  <!-- 我的收藏 -->
+  <!-- <div id="mySaveBox"
+    class="fixed top-0 -right-full w-full md:w-1/2 lg:w-4/12 h-full bg-gray-50 p-9 transition-all duration-300 ease-linear">
+    <h5 class="text-base md:text-xl font-semibold text-gray-800 mb-4">
+      我的收藏
+    </h5>
+
+    <div class="mb-4">
+      <div class="flex flex-row justify-center space-x-3">
+        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">貓咪一日所需營養<i
+            class="fa-solid fa-angle-right"></i></a>
+        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">貓罐乾物比分析<i
+            class="fa-solid fa-angle-right"></i></a>
+      </div>
+      <div class="flex flex-row justify-center space-x-3">
+        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">貓糧乾物比分析<i
+            class="fa-solid fa-angle-right"></i></a>
+        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">全濕食的分配<i
+            class="fa-solid fa-angle-right"></i></a>
+      </div>
+      <div class="flex flex-row justify-center space-x-3">
+        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">全乾食的分配<i
+            class="fa-solid fa-angle-right"></i></a>
+        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">半濕半乾的分配<i
+            class="fa-solid fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="h-2/3 overflow-auto">
+      <div class="card card-style-4 w-full mb-7" data-index="">
+        <div class="header">
+          <p class="title">小胖 &amp; mama貓罐 全濕食分配</p>
+          <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+          <nav class="more-nav hidden">
+            <ul>
+              <li>
+                <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
+              </li>
+              <li>
+                <a href="#">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="body">
+          <div class="pb-5 text-center">
+            <p class="text-base">
+              每日需吃
+              <span class="color-red text-base border-red-400 border-b-2 px-1">1</span>
+              顆罐頭 + <span class="color-red text-base border-red-400 border-b-2 px-1">30</span>公克貓糧，<br>才能達到每日所需熱量。
+            </p>
+          </div>
+          <div class="table-style-1">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>蛋白質</th>
+                  <th>脂肪</th>
+                  <th>水分</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-gray-100">
+                  <td>每日建議</td>
+                  <td>18~24g</td>
+                  <td>1~8g</td>
+                  <td>200~300ml</td>
+                </tr>
+                <tr>
+                  <td>計算結果</td>
+                  <td>24g</td>
+                  <td>8g</td>
+                  <td>300ml</td>
+                </tr>
+                <tr>
+                  <td>說明</td>
+                  <td class="color-red">過多</td>
+                  <td class="color-blue">過少</td>
+                  <td class="color-green">符合</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 text-right pt-2">2022-05-31 11:06</p>
+      </div>
+      <div class="card card-style-4 w-full mb-7" data-index="">
+        <div class="header">
+          <p class="title">小胖 一日所需營養</p>
+          <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+          <nav class="more-nav hidden">
+            <ul>
+              <li>
+                <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
+              </li>
+              <li>
+                <a href="#">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="body">
+          <div class="flex flex-row space-x-4">
+            <div class="basis-1/2 mb-4">
+              <label class="text-sm font-medium block pb-1">熱量：</label>
+              <div class="input-style-3">
+                <input type="text" readonly value="100">
+                <span class="unit">kcal</span>
+              </div>
+            </div>
+            <div class="basis-1/2 mb-4">
+              <label class="text-sm font-medium block pb-1">纖維：</label>
+              <div class="input-style-3">
+                <input type="text" readonly value="100">
+                <span class="unit">g</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row space-x-4">
+            <div class="basis-1/2 mb-4">
+              <label class="text-sm font-medium block pb-1">蛋白質：</label>
+              <div class="input-style-3">
+                <input type="text" readonly value="100">
+                <span class="unit">g</span>
+              </div>
+            </div>
+            <div class="basis-1/2 mb-4">
+              <label class="text-sm font-medium block pb-1">脂肪：</label>
+              <div class="input-style-3">
+                <input type="text" readonly value="100">
+                <span class="unit">g</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row space-x-4">
+            <div class="basis-full mb-0">
+              <label class="text-sm font-medium block pb-1">水分：</label>
+              <div class="input-style-3">
+                <input type="text" readonly value="100 ~ 200">
+                <span class="unit">ml</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 text-right pt-2">2022-05-31 11:06</p>
+      </div>
+    </div>
+
+    <button type="button" id="close_mySaveButton" class="absolute top-4 right-4 text-xl w-10 h-10"><i
+        class="fa-solid fa-xmark"></i></button>
+
+  </div> -->
+
+
+  <script src="../src/js/main.js"></script>
+</body>
+
+</html>

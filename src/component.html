@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="../dist/output.css">
+</head>
+
+<body>
+  <!-- button -->
+  <a href="#" class="button-green">加入收藏</a>
+  <a href="#" class="button-outline-green">加入收藏</a>
+  <a href="#" class="button-dark">加入收藏</a>
+  <a href="#" class="button-outline-green-icon">加入收藏<i class="fa-solid fa-angle-right"></i></a>
+
+  <!-- text -->
+  <p class="color-blue">※每日蛋白質攝取不足，不建議作為主食！</p>
+  <p class="color-red">※每日蛋白質攝取不足，不建議作為主食！</p>
+
+  <!-- table -->
+  <div class="table-style-1">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>蛋白質</th>
+          <th>脂肪</th>
+          <th>水分</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-gray-100">
+          <td>每日建議</td>
+          <td>18~24g</td>
+          <td>1~8g</td>
+          <td>200~300ml</td>
+        </tr>
+        <tr>
+          <td>計算結果</td>
+          <td>24g</td>
+          <td>8g</td>
+          <td>300ml</td>
+        </tr>
+        <tr>
+          <td>說明</td>
+          <td class="color-red">過多</td>
+          <td class="color-blue">過少</td>
+          <td class="color-green">符合</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- input -->
+  <div class="mb-5">
+    <label class="text-base font-medium block pb-2">請輸入貓咪的體重：</label>
+    <div class="input-style-1">
+      <input type="text">
+      <span class="unit">kg</span>
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <label class="text-base font-medium block pb-2">請輸入貓咪的體重：</label>
+    <div class="input-style-2">
+      <input type="text">
+    </div>
+  </div>
+
+  <div class="mb-5">
+    <label class="text-base font-medium block pb-2">請輸入貓咪的體重：</label>
+    <div class="input-style-3">
+      <input type="text" readonly value="100">
+      <span class="unit">kg</span>
+    </div>
+  </div>
+
+  <!-- radio -->
+  <div class="radio-style-1 mb-3">
+    <label for="1">
+      <input id="1" name="radio-box-1" type="radio" value="1">
+      <span>1</span>
+    </label>
+  </div>
+  <div class="radio-style-1 mb-3">
+    <label for="2">
+      <input id="2" name="radio-box-1" type="radio" value="2" checked>
+      <span>2</span>
+    </label>
+  </div>
+
+  <!-- card -->
+  <div class="card-style-1 w-1/2 mb-10">
+    123
+  </div>
+
+  <div class="card-style-2 w-1/2 mb-10">
+    <div class="header">
+      <p class="title">計算結果</p>
+    </div>
+    <div class="body">
+      123
+    </div>
+  </div>
+
+  <div class="card-style-3 w-1/2 mb-10">
+    <p class="text-xl text-gray-400">計算結果</p>
+    <p class="text-gray-400">請完成表單</p>
+  </div>
+  
+  <div class="card-style-4 w-1/2 mb-10">
+    <div class="header">
+      <p class="title">小胖 & mama貓罐 全濕食分配</p>
+      <button type="button" class="more"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      <nav class="more-nav">
+        <ul>
+          <li>
+            <a href="#">重新命名</a>
+          </li>
+          <li>
+            <a href="#">刪除</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      123
+    </div>
+    <p class="text-xs text-gray-400 text-right pt-2">2022-05-31 11:06</p>
+  </div>
+
+  <!-- lightbox -->
+  <div class="lightbox-style-1">
+    <button type="button" class="close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    123
+  </div>
+
+</body>
+
+</html>
