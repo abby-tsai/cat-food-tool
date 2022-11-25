@@ -1,7 +1,7 @@
 # 貓食配方所
 一個方便貓奴計算貓咪每日要吃多少罐罐跟乾乾的工具。
 
-網站：<a href="https://abby-tsai.github.io/cat-food-tool/src/index.html">貓食配方所</a>
+網站：<a href="https://abby-tsai.github.io/cat-food-tool/src/index.html" target="_blank">貓食配方所</a>
 
 共有六個計算功能，分別為：
 1. 每日營養計算
