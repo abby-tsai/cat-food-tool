@@ -207,7 +207,7 @@
   }
 
   .card-style-4 .header .more {
-    @apply absolute top-0 right-0 text-gray-500 text-lg w-10 h-10
+    @apply absolute top-5 right-4 text-gray-500 text-lg w-10 h-10
   }
 
   .card-style-4 .header .more-nav {
@@ -232,8 +232,8 @@
   
   /* lightbox style ----------- */
   .lightbox-style-1 {
-    max-width: 370px;
-    @apply shadow-2xl pt-11 p-10 rounded-2xl relative bg-white w-full
+    max-width: 310px;
+    @apply shadow-2xl pt-11 p-9 rounded-2xl relative bg-white w-full
   }
 
   .lightbox-style-1 .close {
@@ -255,9 +255,15 @@
     color: #da870c;
   }
 
+  .saveItems {
+    height: calc(100% - 133px);
+  }
+
   /* RWD setting ----------- */
   @media screen(sm)  {
-
+    .lightbox-style-1 {
+      max-width: 370px;
+    }
   }
   
   @media screen(md) {

@@ -17,9 +17,9 @@
       <h1 class="text-xl md:text-3xl font-semibold md:tracking-widest text-gray-800">
         貓食配方所
       </h1>
-      <!-- <button type="button" id="open_mySaveButton" class="button-green absolute top-7 md:top-7 right-0 md:right-5">
+      <button type="button" id="open_mySaveButton" class="button-green absolute top-7 md:top-7 right-0 md:right-5">
         我的收藏
-      </button> -->
+      </button>
       <a href="index.html" class="text-sm text-gray-500 absolute top-4 md:top-7 left-0 md:left-5"><i
           class="fa-solid fa-angle-left pr-3"></i> 返回 <i class="fa-solid fa-house"></i></a>
     </header>
@@ -398,159 +398,32 @@
   </div>
 
   <!-- 我的收藏 -->
-  <!-- <div id="mySaveBox"
-    class="fixed top-0 -right-full w-full md:w-1/2 lg:w-4/12 h-full bg-gray-50 p-9 transition-all duration-300 ease-linear">
-    <h5 class="text-base md:text-xl font-semibold text-gray-800 mb-4">
-      我的收藏
-    </h5>
+  <div id="mySaveBox"
+    class="fixed top-0 -right-full w-full md:w-1/2 lg:w-4/12 h-full bg-gray-50 transition-all duration-300 ease-linear border-l border-solid border-gray-300">
 
-    <div class="mb-4">
-      <div class="flex flex-row justify-center space-x-3">
-        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">貓咪一日所需營養<i
-            class="fa-solid fa-angle-right"></i></a>
-        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">貓罐乾物比分析<i
-            class="fa-solid fa-angle-right"></i></a>
-      </div>
-      <div class="flex flex-row justify-center space-x-3">
-        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">貓糧乾物比分析<i
-            class="fa-solid fa-angle-right"></i></a>
-        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">全濕食的分配<i
-            class="fa-solid fa-angle-right"></i></a>
-      </div>
-      <div class="flex flex-row justify-center space-x-3">
-        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">全乾食的分配<i
-            class="fa-solid fa-angle-right"></i></a>
-        <a href="#" class="button-outline-green-icon text-sm p-3 basis-full md:basis-1/2 mb-3">半濕半乾的分配<i
-            class="fa-solid fa-angle-right"></i></a>
+    <div class="pt-16 px-5 pb-5 border-b border-solid border-gray-300">
+      <div class="flex gap-x-1 flex-row overflow-auto">
+        <a href="#"
+          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 mb-3">一日所需營養</a>
+        <a href="#"
+          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 mb-3">貓罐乾物比</a>
+        <a href="#"
+          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 mb-3">貓糧乾物比分析</a>
+        <a href="#"
+          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 mb-3">全濕食的分配</a>
+        <a href="#"
+          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 mb-3">全乾食的分配</a>
+        <a href="#"
+          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 mb-3">半濕半乾的分配</a>
       </div>
     </div>
 
-    <div class="h-2/3 overflow-auto">
-      <div class="card card-style-4 w-full mb-7" data-index="">
-        <div class="header">
-          <p class="title">小胖 &amp; mama貓罐 全濕食分配</p>
-          <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-          <nav class="more-nav hidden">
-            <ul>
-              <li>
-                <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
-              </li>
-              <li>
-                <a href="#">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="body">
-          <div class="pb-5 text-center">
-            <p class="text-base">
-              每日需吃
-              <span class="color-red text-base border-red-400 border-b-2 px-1">1</span>
-              顆罐頭 + <span class="color-red text-base border-red-400 border-b-2 px-1">30</span>公克貓糧，<br>才能達到每日所需熱量。
-            </p>
-          </div>
-          <div class="table-style-1">
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>蛋白質</th>
-                  <th>脂肪</th>
-                  <th>水分</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="bg-gray-100">
-                  <td>每日建議</td>
-                  <td>18~24g</td>
-                  <td>1~8g</td>
-                  <td>200~300ml</td>
-                </tr>
-                <tr>
-                  <td>計算結果</td>
-                  <td>24g</td>
-                  <td>8g</td>
-                  <td>300ml</td>
-                </tr>
-                <tr>
-                  <td>說明</td>
-                  <td class="color-red">過多</td>
-                  <td class="color-blue">過少</td>
-                  <td class="color-green">符合</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <p class="text-xs text-gray-400 text-right pt-2">2022-05-31 11:06</p>
-      </div>
-      <div class="card card-style-4 w-full mb-7" data-index="">
-        <div class="header">
-          <p class="title">小胖 一日所需營養</p>
-          <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-          <nav class="more-nav hidden">
-            <ul>
-              <li>
-                <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
-              </li>
-              <li>
-                <a href="#">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="body">
-          <div class="flex flex-row space-x-4">
-            <div class="basis-1/2 mb-4">
-              <label class="text-sm font-medium block pb-1">熱量：</label>
-              <div class="input-style-3">
-                <input type="text" readonly value="100">
-                <span class="unit">kcal</span>
-              </div>
-            </div>
-            <div class="basis-1/2 mb-4">
-              <label class="text-sm font-medium block pb-1">纖維：</label>
-              <div class="input-style-3">
-                <input type="text" readonly value="100">
-                <span class="unit">g</span>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-row space-x-4">
-            <div class="basis-1/2 mb-4">
-              <label class="text-sm font-medium block pb-1">蛋白質：</label>
-              <div class="input-style-3">
-                <input type="text" readonly value="100">
-                <span class="unit">g</span>
-              </div>
-            </div>
-            <div class="basis-1/2 mb-4">
-              <label class="text-sm font-medium block pb-1">脂肪：</label>
-              <div class="input-style-3">
-                <input type="text" readonly value="100">
-                <span class="unit">g</span>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-row space-x-4">
-            <div class="basis-full mb-0">
-              <label class="text-sm font-medium block pb-1">水分：</label>
-              <div class="input-style-3">
-                <input type="text" readonly value="100 ~ 200">
-                <span class="unit">ml</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="text-xs text-gray-400 text-right pt-2">2022-05-31 11:06</p>
-      </div>
-    </div>
+    <div id="saveItems" class="saveItems overflow-auto"></div>
 
-    <button type="button" id="close_mySaveButton" class="absolute top-4 right-4 text-xl w-10 h-10"><i
+    <button type="button" id="close_mySaveButton" class="absolute top-2 right-3 text-xl w-10 h-10"><i
         class="fa-solid fa-xmark"></i></button>
 
-  </div> -->
-
+  </div>
 
   <script src="../src/js/main.js"></script>
 </body>

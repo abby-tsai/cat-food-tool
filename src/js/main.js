@@ -187,6 +187,7 @@ document.addEventListener("click", function (e) {
 let save_btn = document.querySelector("#save_btn")
 let saveLightBox = document.querySelector("#saveLightBox")
 let saveName = document.querySelector("#saveName")
+let saveObject = JSON.parse(localStorage.getItem('saveObject')) || [];
 
 if (saveLightBox != null) {
   // 如果頁面有 加入收藏 lightbox 才執行以下
@@ -204,9 +205,104 @@ if (saveLightBox != null) {
   let categoryText = saveLightBox.querySelector(".category-text")
   categoryText.textContent = categoryName
 
-  // “加入”按鈕(還沒寫)
+  // “加入”按鈕
+  if (save_sbumit_btn) {
+    save_sbumit_btn.addEventListener("click", addTo_localStorage)
+  }
 }
 
+addTo_saveBox(saveObject)
+
+function addTo_saveBox(saveObj) {
+  let item = "";
+
+  saveObj.forEach((e, i) => {
+    item +=
+      `
+      <div class="card card-style-4 w-full p-6 border-b border-solid border-gray-300" data-index="${i}">
+      <div class="header">
+        <p class="title"><span class="color-darkergreen">${e.name}</span> 的一日所需營養</p>
+        <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        <nav class="more-nav hidden" status="0">
+          <ul>
+            <li>
+              <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
+            </li>
+            <li>
+              <a href="#">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="body">
+        <div class="flex flex-row space-x-4">
+          <div class="basis-1/2 mb-4">
+            <label class="text-sm font-medium block">熱量：</label>
+            <div class="input-style-3">
+              <input type="text" readonly value="${e.daliyKcalValue}">
+              <span class="unit">kcal</span>
+            </div>
+          </div>
+          <div class="basis-1/2 mb-4">
+          <label class="text-sm font-medium block">水分：</label>
+          <div class="input-style-3">
+            <input type="text" readonly value="${e.daliyWaterValue}">
+            <span class="unit">ml</span>
+          </div>
+          </div>
+        </div>
+        <div class="flex flex-row space-x-4">
+          <div class="basis-1/2 mb-4">
+            <label class="text-sm font-medium block">蛋白質：</label>
+            <div class="input-style-3">
+              <input type="text" readonly value="${e.daliyProteinValue}">
+              <span class="unit">g</span>
+            </div>
+          </div>
+          <div class="basis-1/2 mb-4">
+            <label class="text-sm font-medium block">脂肪：</label>
+            <div class="input-style-3">
+              <input type="text" readonly value="${e.daliyFatValue}">
+              <span class="unit">g</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 text-right pt-2">${e.time}</p>
+      </div>
+      `
+  })
+  document.querySelector("#saveItems").innerHTML = item;
+}
+
+// 將得到的數據，儲存到localStorage
+function addTo_localStorage() {
+  let date = new Date();
+  let obj = {
+    name: saveName.value,
+    daliyKcalValue: document.querySelector("#daliyKcal").value,
+    daliyProteinValue: document.querySelector("#daliyProtein").value,
+    daliyFatValue: document.querySelector("#daliyFat").value,
+    daliyWaterValue: document.querySelector("#daliyWater").value,
+    time: `${date.getFullYear()}-${date.getMonth() + 1 }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  }
+  saveObject.unshift(obj)
+  localStorage.setItem("saveObject", JSON.stringify(saveObject))
+  addTo_saveBox(saveObject)
+  saveName.value = "";
+
+  // 關閉 加入收藏 lightbox
+  close_saveLightBox();
+
+  // 讓“我的收藏”欄位滑入
+  mySaveBox.classList.add("right-0");
+  mySaveBox.classList.remove("-right-full");
+
+  // 所有欄位回到初始
+  clean_allValue()
+  edit_daily()
+
+}
 
 function open_saveLightBox() {
   // 開啟 加入收藏 lightbox
