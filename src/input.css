@@ -211,7 +211,7 @@
   }
 
   .card-style-4 .header .more-nav {
-    @apply absolute right-0 top-9 bg-white rounded border border-solid border-gray-200 z-10
+    @apply absolute right-5 top-14 bg-white rounded border border-solid border-gray-200 z-10
   }
 
   .card-style-4 .header .more-nav li {

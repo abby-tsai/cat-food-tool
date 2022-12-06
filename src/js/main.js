@@ -139,47 +139,6 @@ if (close_mySaveButton) {
 }
 
 
-// 下拉 - 收藏的“more”按鈕
-let saveCard = document.querySelectorAll("#mySaveBox .card");
-for (let i = 0; i < saveCard.length; i++) {
-  // 收藏的“更多”按鈕
-  const moreButton = saveCard[i].querySelector(".moreButton");
-  // 新增 onclick 動作
-  moreButton.setAttribute("onclick", `more(${i})`);
-
-  // “更多”按鈕的下拉選單
-  const moreNav = saveCard[i].querySelector(".more-nav");
-  // 新增 id 
-  moreNav.setAttribute("id", `nav-${i}`);
-}
-
-// 下拉開關設定
-function more(item) {
-  let nav = document.getElementById(`nav-${item}`);
-  let status = nav.getAttribute('status');
-  if (status == 0) {
-    nav.classList.add("block");
-    nav.classList.remove("hidden");
-    nav.setAttribute("status", 1);
-  } else {
-    nav.classList.add("hidden");
-    nav.classList.remove("block");
-    nav.setAttribute("status", 0);
-  }
-}
-
-document.addEventListener("click", function (e) {
-  if (!e.target.className.match("moreButton")) {
-    let moreNav = document.querySelectorAll(".more-nav")
-    for (let i = 0; i < moreNav.length; i++) {
-      moreNav[i].classList.add("hidden");
-      moreNav[i].classList.remove("block");
-      moreNav[i].setAttribute("status", 0);
-    }
-  }
-})
-
-
 /* 共用功能 - “加入收藏”按鈕 */
 /* ========================== */
 
@@ -219,11 +178,11 @@ function addTo_saveBox(saveObj) {
   saveObj.forEach((e, i) => {
     item +=
       `
-      <div class="card card-style-4 w-full p-6 border-b border-solid border-gray-300" data-index="${i}">
+      <div class="card card-style-4 w-full p-6 border-b border-solid border-gray-300" id="card-${i}">
       <div class="header">
         <p class="title"><span class="color-darkergreen">${e.name}</span> 的一日所需營養</p>
-        <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-        <nav class="more-nav hidden" status="0">
+        <button type="button" class="more moreButton" id="moreBtn-${i}"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        <nav class="more-nav hidden" status="0" id="nav-${i}">
           <ul>
             <li>
               <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
@@ -270,7 +229,7 @@ function addTo_saveBox(saveObj) {
       </div>
       <p class="text-xs text-gray-400 text-right pt-2">${e.time}</p>
       </div>
-      `
+      `;
   })
   document.querySelector("#saveItems").innerHTML = item;
 }
@@ -284,7 +243,7 @@ function addTo_localStorage() {
     daliyProteinValue: document.querySelector("#daliyProtein").value,
     daliyFatValue: document.querySelector("#daliyFat").value,
     daliyWaterValue: document.querySelector("#daliyWater").value,
-    time: `${date.getFullYear()}-${date.getMonth() + 1 }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    time: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
   }
   saveObject.unshift(obj)
   localStorage.setItem("saveObject", JSON.stringify(saveObject))
@@ -316,6 +275,47 @@ function close_saveLightBox() {
   // 關閉 加入收藏 lightbox
   saveLightBox.classList.add("hidden")
   saveLightBox.classList.remove("block")
+}
+
+
+// 下拉 - 收藏的“more”按鈕
+// 下拉開關設定
+
+document.querySelectorAll(".moreButton").forEach(dropDownFunc);
+
+function dropDownFunc(btn) {
+  if (btn.classList.contains("moreButton") === true) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (this.nextElementSibling.classList.contains("hidden") === false) {
+        // 如果當前的nav是開啟狀態，就讓當前nav隱藏
+        this.nextElementSibling.classList.add("hidden");
+      } else {
+        // 反之，如果當前的nav還沒開啟，就關掉其他的nav，並開啟當前的nav
+        closeDropdown(); // 這個要在前面
+        this.nextElementSibling.classList.remove("hidden");
+      }
+    });
+  }
+}
+
+// 當滑鼠點擊 .moreButton 以外的地方，就關掉nav
+window.addEventListener("click", function (e) {
+  if (e.target.closest(".moreButton") === null) {
+    closeDropdown();
+  }
+});
+
+// 當滑鼠不在nav，就關掉開啟的nav
+document.querySelectorAll(".more-nav").forEach(function (nav) {
+  nav.onmouseleave = closeDropdown;
+});
+
+// 關掉所有開啟的nav
+function closeDropdown() {
+  document.querySelectorAll(".more-nav").forEach(function (nav) {
+    nav.classList.add("hidden");
+  });
 }
 
 
