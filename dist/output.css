@@ -901,8 +901,9 @@ img {
   border-bottom-width: 0px;
 }
 
-.card-style-4 .header .more-nav li a {
+.card-style-4 .header .more-nav li .btn {
   display: block;
+  width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -912,7 +913,7 @@ img {
   line-height: 1rem;
 }
 
-.card-style-4 .header .more-nav li a:hover {
+.card-style-4 .header .more-nav li .btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
@@ -987,6 +988,22 @@ img {
   height: calc(100% - 133px);
 }
 
+#no_saveBoxArea {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  z-index: 1;
+}
+
+#mySaveBox {
+  z-index: 2;
+}
+
 /* RWD setting ----------- */
 
 @media (min-width: 576px)  {
@@ -1019,6 +1036,10 @@ img {
 }
 
 @media (min-width: 1200px)  {
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
 
 .fixed {

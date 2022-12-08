@@ -123,11 +123,13 @@ function math_carbohydrate_solid(protein, fat, fiber, ash, water) {
 let open_mySaveButton = document.querySelector("#open_mySaveButton")
 let close_mySaveButton = document.querySelector("#close_mySaveButton")
 let mySaveBox = document.querySelector("#mySaveBox")
+let no_saveBoxArea = document.querySelector("#no_saveBoxArea")
 
 if (open_mySaveButton) {
   open_mySaveButton.addEventListener("click", function () {
     mySaveBox.classList.add("right-0");
     mySaveBox.classList.remove("-right-full");
+    no_saveBoxArea.classList.remove("pointer-events-none");
   })
 }
 
@@ -135,8 +137,19 @@ if (close_mySaveButton) {
   close_mySaveButton.addEventListener("click", function () {
     mySaveBox.classList.add("-right-full");
     mySaveBox.classList.remove("right-0");
+    no_saveBoxArea.classList.add("pointer-events-none");
   })
 }
+
+
+window.addEventListener("click", function(e){
+  if(e.target.id === "no_saveBoxArea") {
+    // 如果滑鼠點到 no_saveBoxArea 區塊，就關閉“我的收藏”
+    mySaveBox.classList.add("-right-full");
+    mySaveBox.classList.remove("right-0");
+    no_saveBoxArea.classList.add("pointer-events-none");
+  }
+})
 
 
 /* 共用功能 - “加入收藏”按鈕 */
@@ -178,17 +191,17 @@ function addTo_saveBox(saveObj) {
   saveObj.forEach((e, i) => {
     item +=
       `
-      <div class="card card-style-4 w-full p-6 border-b border-solid border-gray-300" id="card-${i}">
+      <div class="card card-style-4 w-full p-6 border-b border-solid border-gray-300">
       <div class="header">
         <p class="title"><span class="color-darkergreen">${e.name}</span> 的一日所需營養</p>
-        <button type="button" class="more moreButton" id="moreBtn-${i}"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-        <nav class="more-nav hidden" status="0" id="nav-${i}">
+        <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        <nav class="more-nav hidden" status="0">
           <ul>
             <li>
-              <a href="#">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></a>
+              <button type="button" class="btn renameButton" data-num="${i}">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></button>
             </li>
             <li>
-              <a href="#">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></a>
+              <button type="button" class="btn deleteButton" data-num="${i}">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></button>
             </li>
           </ul>
         </nav>
@@ -232,6 +245,10 @@ function addTo_saveBox(saveObj) {
       `;
   })
   document.querySelector("#saveItems").innerHTML = item;
+
+  // 放在這裡是因為，當“加入收藏”的清單改變之後，可以抓到剩下的button
+  document.querySelectorAll(".moreButton").forEach(dropDownFunc);
+  document.querySelectorAll(".deleteButton").forEach(deleteFunc);
 }
 
 // 將得到的數據，儲存到localStorage
@@ -256,6 +273,7 @@ function addTo_localStorage() {
   // 讓“我的收藏”欄位滑入
   mySaveBox.classList.add("right-0");
   mySaveBox.classList.remove("-right-full");
+  no_saveBoxArea.classList.remove("pointer-events-none");
 
   // 所有欄位回到初始
   clean_allValue()
@@ -278,10 +296,11 @@ function close_saveLightBox() {
 }
 
 
-// 下拉 - 收藏的“more”按鈕
-// 下拉開關設定
+/* 共用功能 - “加入收藏”按鈕的下拉選單 */
+/* ========================== */
 
-document.querySelectorAll(".moreButton").forEach(dropDownFunc);
+// 下拉開關設定
+// document.querySelectorAll(".moreButton").forEach(dropDownFunc);
 
 function dropDownFunc(btn) {
   if (btn.classList.contains("moreButton") === true) {
@@ -318,6 +337,19 @@ function closeDropdown() {
   });
 }
 
+// 下拉 - 重新命名
+
+// 下拉 - 刪除
+// document.querySelectorAll(".deleteButton").forEach(deleteFunc);
+
+function deleteFunc(btn) {
+  btn.addEventListener("click", function (e) {
+    let dataNumber = e.target.dataset.num;
+    saveObject.splice(dataNumber, 1);
+    localStorage.setItem("saveObject", JSON.stringify(saveObject))
+    addTo_saveBox(saveObject)
+  })
+}
 
 /* 共用功能 - “清除”按鈕 */
 /* ========================== */
