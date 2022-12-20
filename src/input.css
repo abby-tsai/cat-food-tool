@@ -227,7 +227,7 @@
   }
 
   .card-style-4 .body {
-    @apply border border-solid border-gray-300 rounded-md p-5 bg-white
+    @apply border border-solid border-gray-300 rounded-md pb-0 pt-3 px-4 bg-white
   }
   
   /* lightbox style ----------- */

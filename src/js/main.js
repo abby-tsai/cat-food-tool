@@ -142,8 +142,8 @@ if (close_mySaveButton) {
 }
 
 
-window.addEventListener("click", function(e){
-  if(e.target.id === "no_saveBoxArea") {
+window.addEventListener("click", function (e) {
+  if (e.target.id === "no_saveBoxArea") {
     // 如果滑鼠點到 no_saveBoxArea 區塊，就關閉“我的收藏”
     mySaveBox.classList.add("-right-full");
     mySaveBox.classList.remove("right-0");
@@ -181,7 +181,7 @@ if (saveLightBox != null) {
   if (save_sbumit_btn) {
     save_sbumit_btn.addEventListener("click", addTo_localStorage)
   }
-}
+};
 
 addTo_saveBox(saveObject)
 
@@ -191,7 +191,7 @@ function addTo_saveBox(saveObj) {
   saveObj.forEach((e, i) => {
     item +=
       `
-      <div class="card card-style-4 w-full p-6 border-b border-solid border-gray-300">
+      <div class="card card-style-4 w-full p-5 border-b border-solid border-gray-300">
       <div class="header">
         <p class="title"><span class="color-darkergreen">${e.name}</span> 的一日所需營養</p>
         <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
@@ -249,6 +249,7 @@ function addTo_saveBox(saveObj) {
   // 放在這裡是因為，當“加入收藏”的清單改變之後，可以抓到剩下的button
   document.querySelectorAll(".moreButton").forEach(dropDownFunc);
   document.querySelectorAll(".deleteButton").forEach(deleteFunc);
+  document.querySelectorAll(".renameButton").forEach(renameFunc);
 }
 
 // 將得到的數據，儲存到localStorage
@@ -260,7 +261,7 @@ function addTo_localStorage() {
     daliyProteinValue: document.querySelector("#daliyProtein").value,
     daliyFatValue: document.querySelector("#daliyFat").value,
     daliyWaterValue: document.querySelector("#daliyWater").value,
-    time: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    time: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
   }
   saveObject.unshift(obj)
   localStorage.setItem("saveObject", JSON.stringify(saveObject))
@@ -338,12 +339,91 @@ function closeDropdown() {
 }
 
 // 下拉 - 重新命名
+let renameLightBox = document.querySelector("#renameLightBox")
+let old_saveName = renameLightBox.querySelector("#old_saveName")
+let rename_categoryText = renameLightBox.querySelector(".category-text")
+let rename_submit_btn = renameLightBox.querySelector(".submit_btn")
+let rename_cancel_btn = renameLightBox.querySelector(".cancel_btn")
+
+// 點擊 重新命名
+function renameFunc(btn) {
+  let isactive = false;
+  btn.addEventListener("click", function (e) {
+    isactive = true;
+    if (isactive) {
+
+      addTo_saveBox(saveObject);
+
+      rename_dataNumber = e.target.dataset.num;
+
+      // 開啟 加入收藏 lightbox
+      renameLightBox.classList.add("block")
+      renameLightBox.classList.remove("hidden")
+      // 名稱欄位 focus
+      old_saveName.focus();
+      // 名稱欄位為原本的名稱
+      old_saveName.value = saveObject[rename_dataNumber].name;
+
+      // 關閉 "我的收藏"區塊
+      mySaveBox.classList.add("-right-full");
+      mySaveBox.classList.remove("right-0");
+      no_saveBoxArea.classList.add("pointer-events-none");
+
+      // 抓取當前頁面的分類名稱，方便加入收藏直接預設名稱
+      let categoryName = document.querySelector("#card_result .header .title").dataset.cata;
+      rename_categoryText.textContent = categoryName;
+
+      // addEventListener "input" 是在 input 的 value 被更改時觸發！
+      old_saveName.addEventListener("input", function(){
+        saveObject[rename_dataNumber].name = old_saveName.value;
+      })
+
+    }
+  })
+}
+
+// 確認 重新命名
+rename_submit_btn.addEventListener("click", function () {
+
+  // 上傳到localStorage
+  localStorage.setItem("saveObject", JSON.stringify(saveObject));
+  // 渲染到“我的收藏”
+  addTo_saveBox(saveObject);
+
+  // 關閉lightbox
+  renameLightBox.classList.add("hidden")
+  renameLightBox.classList.remove("block")
+
+  // 滑入“我的收藏”區塊
+  mySaveBox.classList.add("right-0");
+  mySaveBox.classList.remove("-right-full");
+  no_saveBoxArea.classList.remove("pointer-events-none");
+})
+
+
+// 取消 重新命名
+rename_cancel_btn.addEventListener("click", function () {
+
+  // 關閉lightbox
+  renameLightBox.classList.add("hidden")
+  renameLightBox.classList.remove("block")
+
+  // 滑入“我的收藏”區塊
+  mySaveBox.classList.add("right-0");
+  mySaveBox.classList.remove("-right-full");
+  no_saveBoxArea.classList.remove("pointer-events-none");
+})
+
+
 
 // 下拉 - 刪除
 // document.querySelectorAll(".deleteButton").forEach(deleteFunc);
 
 function deleteFunc(btn) {
   btn.addEventListener("click", function (e) {
+
+    addTo_saveBox(saveObject);
+
     let dataNumber = e.target.dataset.num;
     saveObject.splice(dataNumber, 1);
     localStorage.setItem("saveObject", JSON.stringify(saveObject))

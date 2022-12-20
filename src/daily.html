@@ -264,6 +264,21 @@
 
   </div>
 
+  <!-- 重新命名 lightbox -->
+  <div id="renameLightBox" class="lightbox-style-1 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden">
+    <label class="text-base font-medium block pb-2">請輸入名稱：</label>
+    <div class="flex flex-row items-center mb-2">
+      <div class="input-style-2 w-1/2 pr-2">
+        <input id="old_saveName" type="text">
+      </div>
+      <p class="category-text w-1/2 text-sm"></p>
+    </div>
+    <div class="flex flex-row space-x-4 mt-7">
+      <button type="button" class="cancel_btn button-dark basis-1/2">取消</button>
+      <button type="button" class="submit_btn button-green basis-1/2">確定</button>
+    </div>
+  </div>
+
   <!-- 隱形區塊 - 判斷滑鼠是否點擊在“我的收藏”以外的區域 -->
   <span id="no_saveBoxArea" class="pointer-events-none"></span>
 
