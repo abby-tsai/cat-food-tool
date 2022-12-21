@@ -261,6 +261,7 @@ function addTo_localStorage() {
     daliyProteinValue: document.querySelector("#daliyProtein").value,
     daliyFatValue: document.querySelector("#daliyFat").value,
     daliyWaterValue: document.querySelector("#daliyWater").value,
+    categoryName: document.querySelector("#card_result .header .title").dataset.cata,
     time: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
   }
   saveObject.unshift(obj)
@@ -370,7 +371,7 @@ function renameFunc(btn) {
       no_saveBoxArea.classList.add("pointer-events-none");
 
       // 抓取當前頁面的分類名稱，方便加入收藏直接預設名稱
-      let categoryName = document.querySelector("#card_result .header .title").dataset.cata;
+      let categoryName = saveObject[rename_dataNumber].categoryName;
       rename_categoryText.textContent = categoryName;
 
       // addEventListener "input" 是在 input 的 value 被更改時觸發！
