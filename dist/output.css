@@ -449,18 +449,6 @@ img {
   color: #FF5F58;
 }
 
-/* .color-primary {
-    color: #188eb6;
-  }
-
-  .color-secondary {
-    color: #c59339;
-  }
-
-  .bg-light {
-    background-color: #f3eac7;
-  } */
-
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -615,6 +603,8 @@ img {
   display: block;
   width: 100%;
   overflow-x: auto;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .table-style-1 table {
@@ -705,8 +695,7 @@ img {
   border-style: solid;
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: transparent;
   padding-right: 2.5rem;
 }
 
@@ -836,6 +825,16 @@ img {
   padding-right: 1rem;
 }
 
+.card-style-2 .body .title-box {
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.card-style-2 .body .title-box .text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .card-style-3 {
   display: flex;
   flex-direction: column;
@@ -919,17 +918,7 @@ img {
 }
 
 .card-style-4 .body {
-  border-radius: 0.375rem;
-  border-width: 1px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 0px;
-  padding-top: 0.75rem;
+  /* @apply border border-solid border-gray-300 rounded-md pb-0 pt-3 px-4 bg-white */
 }
 
 /* lightbox style ----------- */
@@ -989,6 +978,19 @@ img {
 
 .saveItems {
   height: calc(100% - 133px);
+}
+
+.saveItems .body .title-box {
+  padding-bottom: 0.75rem;
+}
+
+.saveItems .body .title-box .text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.saveItems .body .title-box br {
+  display: none;
 }
 
 #no_saveBoxArea {
@@ -1320,14 +1322,6 @@ img {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
-}
-
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -1361,6 +1355,16 @@ img {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pb-2 {

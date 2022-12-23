@@ -29,18 +29,6 @@
   .color-red {
     color: #FF5F58;
   }
-
-  /* .color-primary {
-    color: #188eb6;
-  }
-
-  .color-secondary {
-    color: #c59339;
-  }
-
-  .bg-light {
-    background-color: #f3eac7;
-  } */
 }
 
 @layer components {
@@ -79,7 +67,7 @@
 
   /* table style ----------- */
   .table-style-1 {
-    @apply block w-full overflow-x-auto
+    @apply block w-full overflow-x-auto bg-white
   }
 
   .table-style-1 table {
@@ -115,7 +103,7 @@
     @apply relative
   }
   .input-style-3 input {
-    @apply bg-white h-9 w-full pr-10 border-b border-solid border-gray-400 focus:outline-none
+    @apply bg-transparent h-9 w-full pr-10 border-b border-solid border-gray-400 focus:outline-none
   }
 
   .input-style-3 .unit {
@@ -190,6 +178,14 @@
     @apply py-6 px-4
   }
 
+  .card-style-2 .body .title-box {
+    @apply pb-8 text-center
+  }
+
+  .card-style-2 .body .title-box .text {
+    @apply text-base
+  }
+
   .card-style-3 {
     @apply p-10 rounded-2xl border-2 border-dotted border-gray-400 bg-gray-100 flex items-center justify-center flex-col
   }
@@ -227,7 +223,7 @@
   }
 
   .card-style-4 .body {
-    @apply border border-solid border-gray-300 rounded-md pb-0 pt-3 px-4 bg-white
+    /* @apply border border-solid border-gray-300 rounded-md pb-0 pt-3 px-4 bg-white */
   }
   
   /* lightbox style ----------- */
@@ -257,6 +253,18 @@
 
   .saveItems {
     height: calc(100% - 133px);
+  }
+
+  .saveItems .body .title-box {
+    @apply pb-3
+  }
+
+  .saveItems .body .title-box .text {
+    @apply text-sm
+  }
+
+  .saveItems .body .title-box br {
+    @apply hidden
   }
 
   #no_saveBoxArea {

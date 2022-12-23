@@ -191,56 +191,63 @@ function addTo_saveBox(saveObj) {
   saveObj.forEach((e, i) => {
     item +=
       `
-      <div class="card card-style-4 w-full p-5 border-b border-solid border-gray-300">
-      <div class="header">
-        <p class="title"><span class="color-darkergreen">${e.name}</span> 的一日所需營養</p>
-        <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-        <nav class="more-nav hidden" status="0">
-          <ul>
-            <li>
-              <button type="button" class="btn renameButton" data-num="${i}">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></button>
-            </li>
-            <li>
-              <button type="button" class="btn deleteButton" data-num="${i}">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="body">
-        <div class="flex flex-row space-x-4">
-          <div class="basis-1/2 mb-4">
-            <label class="text-sm font-medium block">熱量：</label>
-            <div class="input-style-3">
-              <input type="text" readonly value="${e.daliyKcalValue}">
-              <span class="unit">kcal</span>
-            </div>
-          </div>
-          <div class="basis-1/2 mb-4">
-          <label class="text-sm font-medium block">水分：</label>
-          <div class="input-style-3">
-            <input type="text" readonly value="${e.daliyWaterValue}">
-            <span class="unit">ml</span>
-          </div>
-          </div>
+      <div class="card card-style-4 w-full px-7 py-5 border-b border-solid border-gray-300">
+        <div class="header">
+          <p class="title"><span class="color-darkergreen">${e.name}</span> ${e.categoryName}</p>
+          <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+          <nav class="more-nav hidden" status="0">
+            <ul>
+              <li>
+                <button type="button" class="btn renameButton" data-num="${i}">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></button>
+              </li>
+              <li>
+                <button type="button" class="btn deleteButton" data-num="${i}">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></button>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div class="flex flex-row space-x-4">
-          <div class="basis-1/2 mb-4">
-            <label class="text-sm font-medium block">蛋白質：</label>
-            <div class="input-style-3">
-              <input type="text" readonly value="${e.daliyProteinValue}">
-              <span class="unit">g</span>
+        <div class="body">
+          ${e.categoryName === "的一日所需營養" ?
+          `<div class="flex flex-row space-x-4">
+            <div class="basis-1/2 mb-4">
+              <label class="text-sm font-medium block">熱量：</label>
+                <div class="input-style-3">
+                  <input type="text" readonly value="${e.daliyKcalValue}">
+                  <span class="unit">kcal</span>
+                </div>
+              </div>
+              <div class="basis-1/2 mb-4">
+              <label class="text-sm font-medium block">水分：</label>
+              <div class="input-style-3">
+                <input type="text" readonly value="${e.daliyWaterValue}">
+                <span class="unit">ml</span>
+              </div>
+              </div>
             </div>
-          </div>
-          <div class="basis-1/2 mb-4">
-            <label class="text-sm font-medium block">脂肪：</label>
-            <div class="input-style-3">
-              <input type="text" readonly value="${e.daliyFatValue}">
-              <span class="unit">g</span>
-            </div>
-          </div>
+            <div class="flex flex-row space-x-4">
+              <div class="basis-1/2 mb-4">
+                <label class="text-sm font-medium block">蛋白質：</label>
+                <div class="input-style-3">
+                  <input type="text" readonly value="${e.daliyProteinValue}">
+                  <span class="unit">g</span>
+                </div>
+              </div>
+              <div class="basis-1/2 mb-4">
+                <label class="text-sm font-medium block">脂肪：</label>
+                <div class="input-style-3">
+                  <input type="text" readonly value="${e.daliyFatValue}">
+                  <span class="unit">g</span>
+                </div>
+              </div>
+            </div>` :
+          ``}
+          ${e.categoryName === "貓罐乾物比" ? `${e.wet_solid_block}` : ``}
+          ${e.categoryName === "貓糧乾物比" ? `${e.dry_solid_block}` : ``}
+          ${e.categoryName === "全濕食分配" ? `${e.full_wet_block}` : ``}
+          ${e.categoryName === "全乾食分配" ? `${e.full_dry_block}` : ``}
+          ${e.categoryName === "半濕食分配" ? `${e.half_wetdry_block}` : ``}
         </div>
-      </div>
-      <p class="text-xs text-gray-400 text-right pt-2">${e.time}</p>
+        <p class="text-xs text-gray-400 text-right pt-2">${e.time}</p>
       </div>
       `;
   })
@@ -256,11 +263,29 @@ function addTo_saveBox(saveObj) {
 function addTo_localStorage() {
   let date = new Date();
   let obj = {
+
+    // 每日所需營養結果
+    daliyKcalValue: document.querySelector("#daliyKcal") ? document.querySelector("#daliyKcal").value : "",
+    daliyProteinValue: document.querySelector("#daliyProtein") ? document.querySelector("#daliyProtein").value : "",
+    daliyFatValue: document.querySelector("#daliyFat") ? document.querySelector("#daliyFat").value : "",
+    daliyWaterValue: document.querySelector("#daliyWater") ? document.querySelector("#daliyWater").value : "",
+
+    // 貓罐乾物比分析結果
+    wet_solid_block: document.querySelector(".wet_solid_block") ? document.querySelector(".wet_solid_block .beSave_block").innerHTML : "",
+
+    // 貓糧乾物比分析結果
+    dry_solid_block: document.querySelector(".dry_solid_block") ? document.querySelector(".dry_solid_block .beSave_block").innerHTML : "",
+
+    // 半濕食的分配結果
+    half_wetdry_block: document.querySelector(".half_wetdry_block") ? document.querySelector(".half_wetdry_block .beSave_block").innerHTML : "", 
+
+    // 全濕食的分配結果
+    full_wet_block: document.querySelector(".full_wet_block") ? document.querySelector(".full_wet_block .beSave_block").innerHTML : "", 
+
+    // 全乾食的分配結果
+    full_dry_block: document.querySelector(".full_dry_block") ? document.querySelector(".full_dry_block .beSave_block").innerHTML : "", 
+
     name: saveName.value,
-    daliyKcalValue: document.querySelector("#daliyKcal").value,
-    daliyProteinValue: document.querySelector("#daliyProtein").value,
-    daliyFatValue: document.querySelector("#daliyFat").value,
-    daliyWaterValue: document.querySelector("#daliyWater").value,
     categoryName: document.querySelector("#card_result .header .title").dataset.cata,
     time: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
   }
@@ -279,7 +304,38 @@ function addTo_localStorage() {
 
   // 所有欄位回到初始
   clean_allValue()
-  edit_daily()
+
+  // 如果是在“每日營養”頁面
+  if (editDailyMath_btn) {
+    edit_daily()
+  }
+
+  // 如果是在“貓罐乾物比分析”頁面
+  if (editsolidWetMath_btn) {
+    edit_solidWeMath()
+  }
+
+  // 如果是在“貓糧乾物比分析”頁面
+  if (editsolidDryMath_btn) {
+    editsolidDryMath()
+  }
+
+  // 如果是在“半濕食的分配析”頁面
+  if (halfWetDryPrev_fillIn_btn) {
+    fillIn_block()
+    select_block()
+  }
+
+  // 如果是在“全濕食的分配”頁面
+  if (editFullWetMath_btn) {
+    edit_fullWetMath()
+  }
+
+  // 如果是在“全乾食的分配”頁面
+  if (editFullDryMath_btn) {
+    editFullDryMath()
+  }
+
 
 }
 
@@ -375,7 +431,7 @@ function renameFunc(btn) {
       rename_categoryText.textContent = categoryName;
 
       // addEventListener "input" 是在 input 的 value 被更改時觸發！
-      old_saveName.addEventListener("input", function(){
+      old_saveName.addEventListener("input", function () {
         saveObject[rename_dataNumber].name = old_saveName.value;
       })
 
