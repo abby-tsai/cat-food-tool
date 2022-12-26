@@ -423,6 +423,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+html, body{
+  scroll-behavior: smooth;
+}
+
 a,
   button {
   display: inline-block;
@@ -691,6 +695,7 @@ img {
 .input-style-3 input {
   height: 2.25rem;
   width: 100%;
+  border-radius: 0px;
   border-bottom-width: 1px;
   border-style: solid;
   --tw-border-opacity: 1;

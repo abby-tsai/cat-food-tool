@@ -208,7 +208,7 @@ function addTo_saveBox(saveObj) {
         </div>
         <div class="body">
           ${e.categoryName === "的一日所需營養" ?
-          `<div class="flex flex-row space-x-4">
+        `<div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-4">
               <label class="text-sm font-medium block">熱量：</label>
                 <div class="input-style-3">
@@ -240,7 +240,7 @@ function addTo_saveBox(saveObj) {
                 </div>
               </div>
             </div>` :
-          ``}
+        ``}
           ${e.categoryName === "貓罐乾物比" ? `${e.wet_solid_block}` : ``}
           ${e.categoryName === "貓糧乾物比" ? `${e.dry_solid_block}` : ``}
           ${e.categoryName === "全濕食分配" ? `${e.full_wet_block}` : ``}
@@ -277,13 +277,13 @@ function addTo_localStorage() {
     dry_solid_block: document.querySelector(".dry_solid_block") ? document.querySelector(".dry_solid_block .beSave_block").innerHTML : "",
 
     // 半濕食的分配結果
-    half_wetdry_block: document.querySelector(".half_wetdry_block") ? document.querySelector(".half_wetdry_block .beSave_block").innerHTML : "", 
+    half_wetdry_block: document.querySelector(".half_wetdry_block") ? document.querySelector(".half_wetdry_block .beSave_block").innerHTML : "",
 
     // 全濕食的分配結果
-    full_wet_block: document.querySelector(".full_wet_block") ? document.querySelector(".full_wet_block .beSave_block").innerHTML : "", 
+    full_wet_block: document.querySelector(".full_wet_block") ? document.querySelector(".full_wet_block .beSave_block").innerHTML : "",
 
     // 全乾食的分配結果
-    full_dry_block: document.querySelector(".full_dry_block") ? document.querySelector(".full_dry_block .beSave_block").innerHTML : "", 
+    full_dry_block: document.querySelector(".full_dry_block") ? document.querySelector(".full_dry_block .beSave_block").innerHTML : "",
 
     name: saveName.value,
     categoryName: document.querySelector("#card_result .header .title").dataset.cata,
@@ -530,6 +530,24 @@ function clean_allValue() {
 }
 
 
+/* 共用功能 - 點擊“開始計算”按鈕，會滑到計算結果區塊 */
+/* ========================== */
+function scrollToResult() {
+  if (window.innerWidth <= 991) {
+    const elem = document.querySelector("#card_result");
+    window.scrollTo(0, elem.offsetTop);
+  }
+}
+
+
+/* 共用功能 - 點擊“重新計算”按鈕，會滑到填寫區塊 */
+/* ========================== */
+function scrollToFill() {
+  if (window.innerWidth <= 991) {
+    const elem = document.querySelector("#card_fill");
+    window.scrollTo(0, elem.offsetTop - 100);
+  }
+}
 
 
 /* 頁面 - 貓咪一日所需營養 */
@@ -544,6 +562,8 @@ if (DailyMath_btn) {
 }
 
 function math_daily() {
+
+  scrollToResult()
 
   // 取得選擇的貓咪狀態，並取得所需卡路里
   for (let i = 0; i < catStatuses.length; i++) {
@@ -636,6 +656,8 @@ if (editDailyMath_btn) {
 
 function edit_daily() {
 
+  scrollToFill()
+
   // “開始計算”按鈕可以編輯
   DailyMath_btn.disabled = false
   // “貓咪的體重”欄位可以編輯
@@ -671,6 +693,8 @@ if (solidWetMath_btn) {
 }
 
 function math_solidWet() {
+
+  scrollToResult()
 
   let wetGram_value = wetGram.value
   let wet_waterPercent_value = wet_waterPercent.value
@@ -840,6 +864,8 @@ if (editsolidWetMath_btn) {
 
 function edit_solidWeMath() {
 
+  scrollToFill()
+
   // “開始計算”按鈕可以編輯
   solidWetMath_btn.disabled = false
   // “清除”按鈕可以編輯
@@ -878,6 +904,8 @@ if (solidDryMath_btn) {
 }
 
 function math_solidDry() {
+
+  scrollToResult()
 
   let dry_1Kg_Kcal_value = dry_1Kg_Kcal.value
   let dry_waterPercent_value = dry_waterPercent.value
@@ -1047,6 +1075,8 @@ if (editsolidDryMath_btn) {
 
 function editsolidDryMath() {
 
+  scrollToFill()
+
   // “開始計算”按鈕可以編輯
   solidDryMath_btn.disabled = false
   // “清除”按鈕可以編輯
@@ -1087,6 +1117,8 @@ if (fullWetMath_btn) {
 }
 
 function math_fullWet() {
+
+  scrollToResult()
 
   // 取得選擇的貓咪狀態，並取得所需卡路里
   for (let i = 0; i < catStatuses.length; i++) {
@@ -1302,6 +1334,8 @@ if (editFullWetMath_btn) {
 }
 function edit_fullWetMath() {
 
+  scrollToFill()
+
   // “開始計算”按鈕可以編輯
   fullWetMath_btn.disabled = false
   // “清除”按鈕可以編輯
@@ -1345,6 +1379,8 @@ if (fullDryMath_btn) {
 }
 
 function math_fullDry() {
+
+  scrollToResult()
 
   // 取得選擇的貓咪狀態，並取得所需卡路里
   for (let i = 0; i < catStatuses.length; i++) {
@@ -1555,6 +1591,8 @@ if (editFullDryMath_btn) {
 }
 function editFullDryMath() {
 
+  scrollToFill()
+
   // “開始計算”按鈕可以編輯
   fullDryMath_btn.disabled = false
   // “清除”按鈕可以編輯
@@ -1715,7 +1753,28 @@ function select_daliyFeed() {
         </div>
         `
     })
-    document.querySelector(".select-radios").innerHTML = selectRadios;
+    document.querySelector(".select-radios").innerHTML =
+      `
+      <div class="radio-style-1">
+        <label for="wetNum__2">
+          <input id="wetNum__2" name="half-wet-dry-choose" type="radio" value="0.2">
+          <span>每日罐頭 0.2 顆 ＋ 乾糧</span>
+        </label>
+      </div>
+      <div class="radio-style-1">
+        <label for="wetNum__25">
+          <input id="wetNum__25" name="half-wet-dry-choose" type="radio" value="0.25">
+          <span>每日罐頭 0.25 顆 ＋ 乾糧</span>
+        </label>
+      </div>
+      <div class="radio-style-1">
+        <label for="wetNum__3">
+          <input id="wetNum__3" name="half-wet-dry-choose" type="radio" value="0.3">
+          <span>每日罐頭 0.3 顆 ＋ 乾糧</span>
+        </label>
+      </div>
+      ${selectRadios}
+      `;
 
     // 計算每日蛋白質克數
     daliyProtein_min = ((daliyKcal * 0.46) / 3.5).toFixed(0);

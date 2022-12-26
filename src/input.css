@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 @layer base {
+  html, body{
+    scroll-behavior: smooth;
+  }
+
   a,
   button {
     display: inline-block;
@@ -103,7 +107,7 @@
     @apply relative
   }
   .input-style-3 input {
-    @apply bg-transparent h-9 w-full pr-10 border-b border-solid border-gray-400 focus:outline-none
+    @apply bg-transparent h-9 w-full pr-10 border-b border-solid border-gray-400 focus:outline-none rounded-none
   }
 
   .input-style-3 .unit {
