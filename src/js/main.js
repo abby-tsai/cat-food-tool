@@ -10,6 +10,7 @@ let kg_kcal = 0
 // 貓咪體重＆貓咪狀態選項
 let catWeight_value = document.querySelector("#catWeight")
 let catStatuses = document.querySelectorAll(".catStatus-box input[type=radio]")
+let catStatusId = ""
 
 
 // 尚未完成表單
@@ -262,7 +263,21 @@ function addTo_saveBox(saveObj) {
 // 將得到的數據，儲存到localStorage
 function addTo_localStorage() {
   let date = new Date();
+
+  catStatuses.forEach(item => {
+    if (item.checked) {
+      catStatusId = item.id;
+    }
+  })
+
+
   let obj = {
+
+    // 體重
+    catWeightValue: document.querySelector("#catWeight") ? document.querySelector("#catWeight").value : "",
+
+    // 狀態
+    catStatusValue: document.querySelectorAll(".catStatus-box") ? catStatusId : "",
 
     // 每日所需營養結果
     daliyKcalValue: document.querySelector("#daliyKcal") ? document.querySelector("#daliyKcal").value : "",
@@ -550,6 +565,32 @@ function scrollToFill() {
 }
 
 
+/* 共用功能 - 當有儲存過體重與狀態，就抓取最新儲存的體重與狀態 */
+/* ========================== */
+
+let hasCatWeightValueIndex = [];
+saveObject.forEach((item, index) => {
+
+  // 如果頁面有 體重和狀態欄位，且“我的收藏”清單中，有紀錄過體重，就執行以下
+  if (catWeight_value && catStatuses && item.catWeightValue) {
+
+    // 有紀錄過體重的 index 放進 hasCatWeightValueIndex 中
+    if (item.catWeightValue) {
+      hasCatWeightValueIndex.push(index)
+    }
+
+    // 將頁面上的 體重和狀態欄位 分別放上 hasCatWeightValueIndex 中的第一個項目的體重和狀態
+    catWeight_value.value = saveObject[hasCatWeightValueIndex[0]].catWeightValue;
+    catStatuses.forEach(item => {
+      if (item.id == saveObject[hasCatWeightValueIndex[0]].catStatusValue) {
+        item.checked = true;
+      }
+    })
+  }
+
+})
+
+
 /* 頁面 - 貓咪一日所需營養 */
 /* ========================== */
 
@@ -565,12 +606,11 @@ function math_daily() {
 
   scrollToResult()
 
-  // 取得選擇的貓咪狀態，並取得所需卡路里
-  for (let i = 0; i < catStatuses.length; i++) {
-    if (catStatuses[i].checked) {
-      catStatus = catStatuses[i].value;
+  catStatuses.forEach(item => {
+    if (item.checked) {
+      catStatus = item.value;
     }
-  }
+  })
 
   if (catWeight_value.value === "") {
     // 如果“貓咪的體重”欄位是空的
@@ -602,6 +642,8 @@ function math_daily() {
 
     // “開始計算”按鈕不能編輯
     DailyMath_btn.disabled = true
+    // “清除”按鈕不能編輯
+    cleanAllValue_btn.disabled = true
     // “貓咪的體重”欄位不能編輯
     catWeight_value.disabled = true
     // “貓咪的狀態”欄位不能編輯
