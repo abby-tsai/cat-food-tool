@@ -284,7 +284,12 @@
   }
 
   #mySaveBox {
-    z-index: 2;
+    z-index: 10;
+  }
+
+  /* width custom */
+  .w-3-3 {
+    width: calc(100% / 3 - 3px);
   }
 
   /* RWD setting ----------- */

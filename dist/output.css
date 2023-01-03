@@ -1011,7 +1011,13 @@ img {
 }
 
 #mySaveBox {
-  z-index: 2;
+  z-index: 10;
+}
+
+/* width custom */
+
+.w-3-3 {
+  width: calc(100% / 3 - 3px);
 }
 
 /* RWD setting ----------- */
@@ -1133,6 +1139,10 @@ img {
   margin-bottom: 1.75rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
 .mt-7 {
   margin-top: 1.75rem;
 }
@@ -1143,10 +1153,6 @@ img {
 
 .mb-6 {
   margin-bottom: 1.5rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .mb-4 {
@@ -1266,6 +1272,10 @@ img {
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
