@@ -243,27 +243,31 @@
     </div>
   </div>
 
-
   <!-- 我的收藏 -->
   <div id="mySaveBox"
     class="fixed top-0 -right-full w-full md:w-1/2 lg:w-4/12 h-full bg-gray-50 transition-all duration-300 ease-linear border-l border-solid border-gray-300">
 
     <div class="pt-16 px-3 pb-5 border-b border-solid border-gray-300">
       <div class="flex gap-x-1 gap-y-1 flex-wrap">
-        <a href="#"
-          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">一日所需營養</a>
-        <a href="#"
-          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">貓罐乾物比</a>
-        <a href="#"
-          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">貓糧乾物比分析</a>
-        <a href="#"
-          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">全濕食的分配</a>
-        <a href="#"
-          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">全乾食的分配</a>
-        <a href="#"
-          class="button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">半濕半乾的分配</a>
+        <a href="#" data-filterName="的一日所需營養"
+          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">一日所需營養</a>
+        <a href="#" data-filterName="貓罐乾物比"
+          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">貓罐乾物比</a>
+        <a href="#" data-filterName="貓糧乾物比"
+          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">貓糧乾物比</a>
+        <a href="#" data-filterName="全濕食分配"
+          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">全濕食分配</a>
+        <a href="#" data-filterName="全乾食分配"
+          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">全乾食分配</a>
+        <a href="#" data-filterName="半濕食分配"
+          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">半濕食分配</a>
+      </div>
+      <div class="text-right mt-3">
+        <button type="button" id="showAllButton" class="text-xs p-1 text-gray-400 underline hidden">Show All</button>
       </div>
     </div>
+
+    <div id="no_saveItems_text" class="text-gray-400 text-center text-sm my-2 hidden">此分類尚未收藏喔！</div>
 
     <div id="saveItems" class="saveItems overflow-auto"></div>
 

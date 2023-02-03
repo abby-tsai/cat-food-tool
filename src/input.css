@@ -11,6 +11,7 @@
   a,
   button {
     display: inline-block;
+    
   }
 
   img {
@@ -256,7 +257,7 @@
   }
 
   .saveItems {
-    height: calc(100% - 133px);
+    height: calc(100% - 200px);
   }
 
   .saveItems .body .title-box {

@@ -192,7 +192,7 @@ function addTo_saveBox(saveObj) {
   saveObj.forEach((e, i) => {
     item +=
       `
-      <div class="card card-style-4 w-full px-7 py-5 border-b border-solid border-gray-300">
+      <div class="card card-style-4 w-full px-7 py-5 border-b border-solid border-gray-300 transition-all" style="${e.style}">
         <div class="header">
           <p class="title"><span class="color-darkergreen">${e.name}</span> ${e.categoryName}</p>
           <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
@@ -270,7 +270,6 @@ function addTo_localStorage() {
     }
   })
 
-
   let obj = {
 
     // 體重
@@ -302,8 +301,11 @@ function addTo_localStorage() {
 
     name: saveName.value,
     categoryName: document.querySelector("#card_result .header .title").dataset.cata,
-    time: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+    time: `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`,
+
+    style: ""
   }
+
   saveObject.unshift(obj)
   localStorage.setItem("saveObject", JSON.stringify(saveObject))
   addTo_saveBox(saveObject)
@@ -350,8 +352,6 @@ function addTo_localStorage() {
   if (editFullDryMath_btn) {
     editFullDryMath()
   }
-
-
 }
 
 function open_saveLightBox() {
@@ -487,7 +487,6 @@ rename_cancel_btn.addEventListener("click", function () {
 })
 
 
-
 // 下拉 - 刪除
 // document.querySelectorAll(".deleteButton").forEach(deleteFunc);
 
@@ -589,6 +588,120 @@ saveObject.forEach((item, index) => {
   }
 
 })
+
+
+/* 共用功能 - 我的收藏 tag 篩選功能 */
+/* ========================== */
+
+const filterButtons = document.querySelectorAll(".filterButton");
+const showAllButton = document.querySelector("#showAllButton");
+const noSaveItemsText = document.querySelector("#no_saveItems_text");
+let no_saveStyle = [];
+
+
+// 如果 localStorage 的 filterButton 有值，就出現“顯示全部”按鈕
+if (!!localStorage.getItem("filterButton")) {
+  showAllButton.classList.remove("hidden");
+}
+
+filterButtons.forEach(item => {
+  item.addEventListener("click", showFilterList);
+
+  if (!!JSON.parse(localStorage.getItem("saveObject"))) {
+    // 如果 localStorage 的 saveObject 有內容
+    if (item.dataset.filtername === localStorage.getItem("filterButton")) {
+      // 如果按鈕名稱 與 上一次點選的按鈕名稱 一致，就讓該按鈕要加上 active 樣式
+      item.classList.remove("button-outline-green-icon");
+      item.classList.add("button-green");
+    } else {
+      // 如果 localStorage 的 saveObject 沒有內容，則不要讓按鈕有 active 樣式
+      item.classList.add("button-outline-green-icon");
+      item.classList.remove("button-green");
+    }
+  }
+})
+
+
+function showFilterList(e) {
+  let filterName = e.target.dataset.filtername;
+
+  // 出現“顯示全部”按鈕
+  showAllButton.classList.remove("hidden");
+
+  // 全部的篩選按鈕都是預設樣式
+  filterButtons.forEach(item => {
+    item.classList.add("button-outline-green-icon");
+    item.classList.remove("button-green");
+  })
+  // 被選取的才要加上 active 樣式
+  e.target.classList.remove("button-outline-green-icon");
+  e.target.classList.add("button-green");
+
+  // 把篩選到的按鈕名稱 上傳到localStorage
+  localStorage.setItem("filterButton", filterName);
+
+  saveObject.forEach(item => {
+    if (item.categoryName !== filterName) {
+      // 跟篩選的名稱不同的item 要新增隱藏的css
+      item.style = "display: none;";
+    } else {
+      item.style = "";
+    }
+  });
+
+  no_saveStyle = [];
+  check_saveStyle();
+
+  localStorage.setItem("saveObject", JSON.stringify(saveObject));
+  addTo_saveBox(saveObject);
+}
+
+// 檢查目前篩選清單的 style 樣式是否為空？
+function check_saveStyle() {
+  saveObject.forEach(item => {
+    if (item.style === "") {
+      // 篩選清單的 style 樣式是空的，就把項目傳到 no_saveStyle 陣列中
+      no_saveStyle.push(item);
+    }
+  });
+
+  if (no_saveStyle.length > 0) {
+    // 如果 no_saveStyle 的 [] 不是空的，隱藏提醒字(有篩選到項目)
+    noSaveItemsText.classList.add("hidden");
+  } else {
+    // 如果 no_saveStyle 的 [] 是空的，顯示提醒字(沒有篩選到項目)
+    noSaveItemsText.classList.remove("hidden");
+  }
+}
+check_saveStyle();
+
+
+// 顯示全部收藏
+showAllButton.addEventListener("click", function () {
+
+  noSaveItemsText.classList.add("hidden");
+
+  // 隱藏“顯示全部”按鈕
+  showAllButton.classList.add("hidden");
+
+  // 讓 localStorage 的 filterButton 變成空值
+  localStorage.setItem("filterButton", "");
+
+  // 讓每個篩選按鈕，都回到預設樣式
+  filterButtons.forEach(item => {
+    item.classList.add("button-outline-green-icon");
+    item.classList.remove("button-green");
+  })
+
+  // 讓“我的收藏”列表，都顯示出來
+  saveObject.forEach(item => {
+    item.style = "";
+  });
+  // 重新渲染到畫面
+  localStorage.setItem("saveObject", JSON.stringify(saveObject));
+  addTo_saveBox(saveObject);
+})
+
 
 
 /* 頁面 - 貓咪一日所需營養 */
