@@ -597,7 +597,7 @@ saveObject.forEach((item, index) => {
 
 const filterButtons = document.querySelectorAll(".filterButton");
 const showAllButton = document.querySelector("#showAllButton");
-const noSaveItemsText = document.querySelector("#no_saveItems_text");
+// const noSaveItemsText = document.querySelector("#no_saveItems_text");
 let no_saveStyle = [];
 
 
@@ -669,10 +669,10 @@ function check_saveStyle() {
 
   if (no_saveStyle.length > 0) {
     // 如果 no_saveStyle 的 [] 不是空的，隱藏提醒字(有篩選到項目)
-    noSaveItemsText.classList.add("hidden");
+    // noSaveItemsText.classList.add("hidden");
   } else {
     // 如果 no_saveStyle 的 [] 是空的，顯示提醒字(沒有篩選到項目)
-    noSaveItemsText.classList.remove("hidden");
+    // noSaveItemsText.classList.remove("hidden");
   }
 }
 check_saveStyle();
@@ -681,7 +681,7 @@ check_saveStyle();
 // 顯示全部收藏
 showAllButton.addEventListener("click", function () {
 
-  noSaveItemsText.classList.add("hidden");
+  // noSaveItemsText.classList.add("hidden");
 
   // 隱藏“顯示全部”按鈕
   showAllButton.classList.add("hidden");
