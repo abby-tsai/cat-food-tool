@@ -368,6 +368,8 @@ function close_saveLightBox() {
   saveLightBox.classList.remove("block")
 }
 
+/* 當在有篩選的狀況下，新增新的收藏，要把我的收藏清單改回顯示全部！！！ */
+
 
 /* 共用功能 - “加入收藏”按鈕的下拉選單 */
 /* ========================== */
