@@ -21,3 +21,8 @@
 1. 會員系統
 
 因為自己是個貓奴，每天都在算貓咪要吃多少營養才夠，所以就自己做一個乾濕食的分配工具～方便大家使用！
+
+要開始編輯時：
+1. 開啟終端機
+2. 輸入 npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+3. css 修改改在 ./src/input.css

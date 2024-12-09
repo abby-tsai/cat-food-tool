@@ -32,7 +32,15 @@
   }
 
   .color-red {
-    color: #FF5F58;
+    color: #FF3737;
+  }
+
+  .color-dark {
+    color: #494949;
+  }
+
+  .color-gray {
+    color: #969696;
   }
 }
 
@@ -44,6 +52,13 @@
     font-size: 14px;
     min-height: 45px;
     @apply px-5 text-white rounded font-normal inline-flex items-center justify-center
+  }
+
+  .button-gray {
+    background-color: #F4F4F6;
+    font-size: 14px;
+    min-height: 45px;
+    @apply px-5 rounded font-normal inline-flex items-center justify-center
   }
 
   .button-dark {

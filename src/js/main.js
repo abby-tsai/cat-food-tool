@@ -2218,3 +2218,7 @@ function select_block() {
   card_result.classList.add("h-0", "opacity-0");
 
 }
+
+
+// jquery load 共用區域引入
+
