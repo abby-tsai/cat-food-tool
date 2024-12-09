@@ -51,21 +51,35 @@
     background-color: #52B49F;
     font-size: 14px;
     min-height: 45px;
-    @apply px-5 text-white rounded font-normal inline-flex items-center justify-center
+    @apply px-4 text-white rounded font-normal inline-flex items-center justify-center
   }
 
   .button-gray {
     background-color: #F4F4F6;
     font-size: 14px;
     min-height: 45px;
-    @apply px-5 rounded font-normal inline-flex items-center justify-center
+    @apply px-4 rounded font-normal inline-flex items-center justify-center
   }
 
   .button-dark {
     background-color: #4F4F4F;
     font-size: 14px;
     min-height: 45px;
-    @apply px-5 text-white rounded font-normal inline-flex items-center justify-center
+    @apply px-4 text-white rounded font-normal inline-flex items-center justify-center
+  }
+
+  .button-red {
+    background-color: #FF3737;
+    font-size: 14px;
+    min-height: 45px;
+    @apply px-4 text-white rounded font-normal inline-flex items-center justify-center
+  }
+
+  .button-lightRed {
+    background-color: #FEDDDD;
+    font-size: 14px;
+    min-height: 45px;
+    @apply px-4 text-red-600 rounded font-normal inline-flex items-center justify-center
   }
 
   .button-outline-green {
@@ -74,7 +88,7 @@
     min-height: 45px;
     border: 1px solid #52B49F;
     color: #52B49F;
-    @apply px-5 rounded font-normal inline-flex items-center justify-center
+    @apply px-4 rounded font-normal inline-flex items-center justify-center
   }
 
   .button-outline-green-icon {
@@ -108,7 +122,7 @@
     @apply relative
   }
   .input-style-1 input {
-    @apply bg-gray-100 h-10 w-full pl-4 pr-10 border border-solid border-gray-200 rounded
+    @apply h-10 w-full pl-4 pr-10 border border-solid border-gray-200 rounded
   }
 
   .input-style-1 .unit {
@@ -123,11 +137,11 @@
     @apply relative
   }
   .input-style-3 input {
-    @apply bg-transparent h-9 w-full pr-10 border-b border-solid border-gray-400 focus:outline-none rounded-none
+    @apply text-sm font-semibold bg-transparent h-8 w-full pr-10 border-b border-solid border-gray-300 focus:outline-none rounded-none
   }
 
   .input-style-3 .unit {
-    @apply absolute right-2 top-1/2 -translate-y-1/2 text-sm text-gray-500
+    @apply absolute right-2 top-1/2 -translate-y-1/2 text-sm text-zinc-400
   }
 
   /* radio style ----------- */
@@ -177,25 +191,25 @@
   
   /* card style ----------- */
   .card-style-1 {
-    @apply shadow-xl p-5 rounded-2xl border border-solid border-gray-100 bg-white
+    @apply p-5 rounded-2xl border border-solid border-gray-200 bg-white
   }
 
   .card-style-2 {
     border-color: #52B49F;
-    @apply rounded-2xl bg-white shadow-xl
+    @apply rounded-2xl border border-solid border-gray-200 bg-white
   }
 
   .card-style-2 .header {
-    background-color: #52B49F;
-    @apply text-center p-3 rounded-2xl rounded-b-none
+    /* background-color: #52B49F; */
+    @apply text-center px-4 py-5 rounded-2xl rounded-b-none
   }
 
   .card-style-2 .header .title {
-    @apply text-white text-lg
+    /* @apply text-white text-lg */
   }
 
   .card-style-2 .body {
-    @apply py-6 px-4
+    @apply py-6 px-5
   }
 
   .card-style-2 .body .title-box {
@@ -264,7 +278,9 @@
 
   /* tips text style ----------- */
   .tip-text {
-    @apply py-1 px-2 text-sm rounded
+    line-height: 1.5;
+    font-size: 14px;
+    @apply py-2 px-3 rounded
   }
   .tip-text.warning {
     background-color: #fcf4c3;
@@ -316,7 +332,7 @@
   }
   
   @media screen(md) {
-    .button-green, .button-dark, .button-outline-green {
+    .button-green, .button-dark, .button-outline-green, .button-red, .button-lightRed  {
       @apply text-base
     }
     .card-style-1 {
@@ -326,7 +342,7 @@
       @apply py-5 px-5
     }
     .table-style-1 table th, .table-style-1 table td {
-      @apply text-sm
+      /* @apply text-sm */
     }
   }
   

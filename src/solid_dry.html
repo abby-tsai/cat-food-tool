@@ -22,10 +22,12 @@
     <header class="text-left md:text-center relative mt-3">
 
       <div class="flex items-center justify-center">
-        <img src="img/logo.svg" class="w-24" alt="">
+        <a href="index.html">
+          <img src="img/logo.svg" class="w-24" alt="">
+        </a>
       </div>
 
-      <a href="index.html" class="text-red-400 absolute top-4 left-2">
+      <a href="index.html" class="text-zinc-500 absolute top-4 left-2">
         <i class="fa-solid fa-home"></i>
       </a>
       <button type="button" id="open_mySaveButton" class="text-red-400 absolute top-4 right-2">
@@ -36,31 +38,31 @@
     <div class="py-1"></div>
 
     <div class="text-center">
-      <div class="flex flex-row flex-nowrap justify-center gap-2 md:space-x-4 mb-2">
-        <a href="daily.html" class="text-sm color-dark basis-1/3 md:basis-1/4 p-3 rounded-md"><i
-            class="text-2xl mb-2 block text-zinc-400 fa-solid fa-weight-scale"></i>每日營養</a>
-        <a href="solid_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/4 p-3 rounded-md"><i
-            class="text-2xl mb-2 block text-zinc-400 fa-solid fa-hockey-puck"></i>貓罐乾物比</a>
-        <a href="solid_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/4 p-3 rounded-md"><i
-            class="text-2xl mb-2 block text-zinc-400 fa-solid fa-box-archive"></i>貓糧乾物比</a>
-      </div>
-      <div class="flex flex-row flex-nowrap justify-center gap-2 md:space-x-4">
-        <a href="full_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/4 p-3 rounded-md"><i
-            class="text-2xl mb-2 block text-zinc-400 fa-solid fa-droplet"></i>全濕食分配</a>
-        <a href="full_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/4 p-3 rounded-md"><i
-            class="text-2xl mb-2 block text-zinc-400 fa-solid fa-shapes"></i>全乾食分配</a>
-        <a href="half_wet_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/4 p-3 rounded-md"><i
-            class="text-2xl mb-2 block text-zinc-400 fa-solid fa-bowl-food"></i>半濕食分配</a>
+      <div class="flex flex-row flex-wrap justify-center mb-2">
+        <a href="daily.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
+            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-weight-scale"></i>每日營養</a>
+        <a href="solid_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
+            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-hockey-puck"></i>貓罐乾物比</a>
+        <a href="solid_dry.html" class="text-sm text-red-500 basis-1/3 md:basis-1/6 p-3 rounded-md">
+          <i class="text-2xl mb-1 block text-red-500 fa-solid fa-box-archive"></i>貓糧乾物比</a>
+        <a href="full_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
+            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-droplet"></i>全濕食分配</a>
+        <a href="full_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
+            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-shapes"></i>全乾食分配</a>
+        <a href="half_wet_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
+            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-bowl-food"></i>半濕食分配</a>
       </div>
     </div>
 
-    <div class="py-2"></div>
-
-    <img src="img/line.svg" alt="">
-
     <div class="py-5"></div>
 
-    <p class="text-center pb-10">乾物比指的是「去除掉水分」後，各成分在罐頭中佔的「重量的比例」。</p>
+    <div class="flex justify-center pb-10">
+      <p class="tip-text warning">
+        <strong>什麼是乾物比？</strong>
+        <br />
+        乾物比指的是「去除掉水分」後，各成分在罐頭中佔的「重量的比例」。
+      </p>
+    </div>
 
     <div class="flex flex-row flex-wrap justify-center md:space-x-6">
       <div class="basis-full md:basis-1/2 mb-10 md:mb-0" id="card_fill">
@@ -68,20 +70,20 @@
 
           <div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2 relative">
-                飼料1公斤的熱量：
+              <label class="text-sm md:text-base block pb-2 relative">
+                飼料1公斤的熱量
                 <span
                   class="alert-dryElement opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">
                   請檢查是否皆填寫，並且皆為數字。
                 </span>
               </label>
               <div class="input-style-1">
-                <input id="dry_1Kg_Kcal" type="number">
+                <input id="dry_1Kg_Kcal" type="tel">
                 <span class="unit">g</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">蛋白質：</label>
+              <label class="text-sm md:text-base block pb-2">蛋白質</label>
               <div class="input-style-1">
                 <input id="dry_proteinPercent" type="number">
                 <span class="unit">%</span>
@@ -91,14 +93,14 @@
 
           <div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">脂肪：</label>
+              <label class="text-sm md:text-base block pb-2">脂肪</label>
               <div class="input-style-1">
                 <input id="dry_fatPercent" type="number">
                 <span class="unit">%</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">纖維：</label>
+              <label class="text-sm md:text-base block pb-2">纖維</label>
               <div class="input-style-1">
                 <input id="dry_fiberPercent" type="number">
                 <span class="unit">%</span>
@@ -108,14 +110,14 @@
 
           <div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">灰份：</label>
+              <label class="text-sm md:text-base block pb-2">灰份</label>
               <div class="input-style-1">
                 <input id="dry_ashPercent" type="number">
                 <span class="unit">%</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">水分：</label>
+              <label class="text-sm md:text-base block pb-2">水分</label>
               <div class="input-style-1">
                 <input id="dry_waterPercent" type="number">
                 <span class="unit">%</span>
@@ -125,8 +127,8 @@
 
           <div class="mt-6">
             <div class="flex flex-row space-x-4 mt-7">
-              <button type="button" id="cleanAllValue_btn" class="button-dark basis-1/3">清除</button>
-              <button type="button" id="solidDryMath_btn" class="button-green basis-2/3">開始計算</button>
+              <button type="button" id="cleanAllValue_btn" class="button-lightRed basis-1/3">清除</button>
+              <button type="button" id="solidDryMath_btn" class="button-red basis-2/3">開始計算</button>
             </div>
           </div>
         </div>
@@ -140,7 +142,7 @@
       <div class="basis-full md:basis-1/3 opacity-0 h-0 transition-all" id="card_result">
         <div class="card-style-2 w-full">
           <div class="header">
-            <p class="title" data-cata="貓糧乾物比">貓糧乾物比結果</p>
+            <p class="title" data-cata="貓糧乾物比">計算結果</p>
           </div>
           <div class="body">
             <div class="dry_solid_block">
@@ -186,7 +188,7 @@
             </div>
             <div class="flex flex-row space-x-4 mt-7">
               <button type="button" id="editsolidDryMath_btn" class="button-dark basis-1/2">重新計算</button>
-              <button type="button" id="save_btn" class="button-green basis-1/2">加入收藏</button>
+              <button type="button" id="save_btn" class="button-red basis-1/2">加入收藏</button>
             </div>
           </div>
         </div>
