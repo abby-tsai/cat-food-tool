@@ -78,14 +78,14 @@
                 </span>
               </label>
               <div class="input-style-1">
-                <input id="dry_1Kg_Kcal" type="tel">
+                <input id="dry_1Kg_Kcal" type="text" inputmode="decimal">
                 <span class="unit">g</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
               <label class="text-sm md:text-base block pb-2">蛋白質</label>
               <div class="input-style-1">
-                <input id="dry_proteinPercent" type="number">
+                <input id="dry_proteinPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
@@ -95,14 +95,14 @@
             <div class="basis-1/2 mb-6">
               <label class="text-sm md:text-base block pb-2">脂肪</label>
               <div class="input-style-1">
-                <input id="dry_fatPercent" type="number">
+                <input id="dry_fatPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
               <label class="text-sm md:text-base block pb-2">纖維</label>
               <div class="input-style-1">
-                <input id="dry_fiberPercent" type="number">
+                <input id="dry_fiberPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
@@ -112,14 +112,14 @@
             <div class="basis-1/2 mb-6">
               <label class="text-sm md:text-base block pb-2">灰份</label>
               <div class="input-style-1">
-                <input id="dry_ashPercent" type="number">
+                <input id="dry_ashPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
               <label class="text-sm md:text-base block pb-2">水分</label>
               <div class="input-style-1">
-                <input id="dry_waterPercent" type="number">
+                <input id="dry_waterPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
@@ -187,8 +187,8 @@
               <div class="warning_txt_box pt-5"></div>
             </div>
             <div class="flex flex-row space-x-4 mt-7">
-              <button type="button" id="editsolidDryMath_btn" class="button-dark basis-1/2">重新計算</button>
-              <button type="button" id="save_btn" class="button-red basis-1/2">加入收藏</button>
+              <button type="button" id="editsolidDryMath_btn" class="button-dark basis-1/3">重新計算</button>
+              <button type="button" id="save_btn" class="button-red basis-2/3">加入收藏</button>
             </div>
           </div>
         </div>
@@ -201,18 +201,18 @@
   <div id="saveLightBox" class="lightbox-style-1 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden">
     <label class="text-base font-medium block pb-2">請輸入名稱：</label>
     <div class="flex flex-row items-center mb-2">
-      <div class="input-style-2 w-2/3 pr-2">
+      <div class="input-style-2 w-1/2 pr-2">
         <input id="saveName" type="text">
       </div>
-      <p class="category-text w-1/3 text-sm"></p>
+      <p class="category-text w-1/2 text-sm"></p>
     </div>
     <p class="text-xs">為了方便辨識，建議填寫。<br />
-      ex: <span class="color-darkergreen">喵喵</span>的一日所需營養 or
-      <span class="color-darkergreen">喵喵和xx罐頭</span>半濕食分配
+      ex: <span class="text-red-500">喵喵</span>的一日所需營養 or
+      <span class="text-red-500">喵喵和xx罐頭</span>半濕食分配
     </p>
     <div class="flex flex-row space-x-4 mt-7">
-      <button type="button" class="cancel_btn button-dark basis-1/2">取消</button>
-      <button type="button" class="sbumit_btn button-green basis-1/2">加入</button>
+      <button type="button" class="cancel_btn button-lightRed basis-1/2">取消</button>
+      <button type="button" class="sbumit_btn button-red basis-1/2">加入</button>
     </div>
   </div>
 
