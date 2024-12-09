@@ -41,8 +41,8 @@
       <div class="flex flex-row flex-wrap justify-center mb-2">
         <a href="daily.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
             class="text-2xl mb-1 block text-zinc-400 fa-solid fa-weight-scale"></i>每日營養</a>
-        <a href="solid_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-hockey-puck"></i>貓罐乾物比</a>
+        <a href="solid_wet.html" class="text-sm text-red-500 basis-1/3 md:basis-1/6 p-3 rounded-md">
+          <i class="text-2xl mb-1 block text-red-500 fa-solid fa-hockey-puck"></i>貓罐乾物比</a>
         <a href="solid_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
             class="text-2xl mb-1 block text-zinc-400 fa-solid fa-box-archive"></i>貓糧乾物比</a>
         <a href="full_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
@@ -56,7 +56,13 @@
 
     <div class="py-5"></div>
 
-    <p class="text-center pb-10">乾物比指的是「去除掉水分」後，各成分在罐頭中佔的「重量的比例」。</p>
+    <div class="flex justify-center pb-10">
+      <p class="tip-text warning">
+        <strong>什麼是乾物比？</strong>
+        <br />
+        乾物比指的是「去除掉水分」後，各成分在罐頭中佔的「重量的比例」。
+      </p>
+    </div>
 
     <div class="flex flex-row flex-wrap justify-center md:space-x-6">
       <div class="basis-full md:basis-1/2 mb-10 md:mb-0" id="card_fill">
@@ -64,22 +70,22 @@
 
           <div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2 relative">
-                罐頭重量：
+              <label class="text-sm md:text-base block pb-2 relative">
+                罐頭重量
                 <span
                   class="alert-wetElement opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">
                   請檢查是否皆填寫，並且皆為數字。
                 </span>
               </label>
               <div class="input-style-1">
-                <input id="wetGram" type="number">
+                <input id="wetGram" type="text" inputmode="decimal">
                 <span class="unit">g</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">蛋白質：</label>
+              <label class="text-sm md:text-base block pb-2">蛋白質</label>
               <div class="input-style-1">
-                <input id="wet_proteinPercent" type="number">
+                <input id="wet_proteinPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
@@ -87,16 +93,16 @@
 
           <div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">脂肪：</label>
+              <label class="text-sm md:text-base block pb-2">脂肪</label>
               <div class="input-style-1">
-                <input id="wet_fatPercent" type="number">
+                <input id="wet_fatPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">纖維：</label>
+              <label class="text-sm md:text-base block pb-2">纖維</label>
               <div class="input-style-1">
-                <input id="wet_fiberPercent" type="number">
+                <input id="wet_fiberPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
@@ -104,16 +110,16 @@
 
           <div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">灰份：</label>
+              <label class="text-sm md:text-base block pb-2">灰份</label>
               <div class="input-style-1">
-                <input id="wet_ashPercent" type="number">
+                <input id="wet_ashPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
             <div class="basis-1/2 mb-6">
-              <label class="text-sm md:text-base font-medium block pb-2">水分：</label>
+              <label class="text-sm md:text-base block pb-2">水分</label>
               <div class="input-style-1">
-                <input id="wet_waterPercent" type="number">
+                <input id="wet_waterPercent" type="text" inputmode="decimal">
                 <span class="unit">%</span>
               </div>
             </div>
@@ -121,8 +127,8 @@
 
           <div class="mt-6">
             <div class="flex flex-row space-x-4 mt-7">
-              <button type="button" id="cleanAllValue_btn" class="button-dark basis-1/3">清除</button>
-              <button type="button" id="solidWetMath_btn" class="button-green basis-2/3">開始計算</button>
+              <button type="button" id="cleanAllValue_btn" class="button-lightRed basis-1/3">清除</button>
+              <button type="button" id="solidWetMath_btn" class="button-red basis-2/3">開始計算</button>
             </div>
           </div>
         </div>
@@ -136,7 +142,7 @@
       <div class="basis-full md:basis-1/3 opacity-0 h-0 transition-all" id="card_result">
         <div class="card-style-2 w-full">
           <div class="header">
-            <p class="title" data-cata="貓罐乾物比">貓罐乾物比結果</p>
+            <p class="title" data-cata="貓罐乾物比">計算結果</p>
           </div>
           <div class="body">
             <div class="wet_solid_block">
@@ -181,8 +187,8 @@
               <div class="warning_txt_box pt-5"></div>
             </div>
             <div class="flex flex-row space-x-4 mt-7">
-              <button type="button" id="editsolidWetMath_btn" class="button-dark basis-1/2">重新計算</button>
-              <button type="button" id="save_btn" class="button-green basis-1/2">加入收藏</button>
+              <button type="button" id="editsolidWetMath_btn" class="button-dark basis-1/3">重新計算</button>
+              <button type="button" id="save_btn" class="button-red basis-2/3">加入收藏</button>
             </div>
           </div>
         </div>
@@ -195,18 +201,18 @@
   <div id="saveLightBox" class="lightbox-style-1 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden">
     <label class="text-base font-medium block pb-2">請輸入名稱：</label>
     <div class="flex flex-row items-center mb-2">
-      <div class="input-style-2 w-2/3 pr-2">
+      <div class="input-style-2 w-1/2 pr-2">
         <input id="saveName" type="text">
       </div>
-      <p class="category-text w-1/3 text-sm"></p>
+      <p class="category-text w-1/2 text-sm"></p>
     </div>
     <p class="text-xs">為了方便辨識，建議填寫。<br />
-      ex: <span class="color-darkergreen">喵喵</span>的一日所需營養 or
-      <span class="color-darkergreen">喵喵和xx罐頭</span>半濕食分配
+      ex: <span class="text-red-500">喵喵</span>的一日所需營養 or
+      <span class="text-red-500">喵喵和xx罐頭</span>半濕食分配
     </p>
     <div class="flex flex-row space-x-4 mt-7">
-      <button type="button" class="cancel_btn button-dark basis-1/2">取消</button>
-      <button type="button" class="sbumit_btn button-green basis-1/2">加入</button>
+      <button type="button" class="cancel_btn button-lightRed basis-1/2">取消</button>
+      <button type="button" class="sbumit_btn button-red basis-1/2">加入</button>
     </div>
   </div>
 

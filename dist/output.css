@@ -651,18 +651,25 @@ img {
 
 .table-style-1 table {
   width: 100%;
-  border-width: 1px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   text-align: center;
 }
 
-.table-style-1 table th, .table-style-1 table td {
-  border-width: 1px;
-  border-style: solid;
+.table-style-1 table th {
+  border-right-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  border-color: rgb(161 161 170 / var(--tw-border-opacity));
+}
+
+.table-style-1 table th:first-child {
+  border-top-left-radius: 0.375rem;
+}
+
+.table-style-1 table th:last-child {
+  border-top-right-radius: 0.375rem;
+  border-width: 0px;
+}
+
+.table-style-1 table th, .table-style-1 table td {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 0.25rem;
@@ -1006,7 +1013,7 @@ img {
 .tip-text {
   line-height: 1.5;
   font-size: 14px;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;

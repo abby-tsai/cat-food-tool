@@ -105,11 +105,23 @@
   }
 
   .table-style-1 table {
-    @apply w-full border border-solid border-gray-200 text-center
+    @apply w-full text-center
+  }
+
+  .table-style-1 table th {
+    @apply border-r border-zinc-400
+  }
+
+  .table-style-1 table th:first-child {
+    @apply rounded-tl-md
+  }
+
+  .table-style-1 table th:last-child {
+    @apply rounded-tr-md border-0
   }
 
   .table-style-1 table th, .table-style-1 table td {
-    @apply border border-solid border-gray-200 py-2 px-1 text-xs font-normal
+    @apply py-2 px-1 text-xs font-normal
   }
 
   .table-style-1 table thead tr {
@@ -280,7 +292,7 @@
   .tip-text {
     line-height: 1.5;
     font-size: 14px;
-    @apply py-2 px-3 rounded
+    @apply py-2 px-3 rounded-xl
   }
   .tip-text.warning {
     background-color: #fcf4c3;
