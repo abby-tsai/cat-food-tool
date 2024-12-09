@@ -47,8 +47,8 @@
             class="text-2xl mb-1 block text-zinc-400 fa-solid fa-box-archive"></i>貓糧乾物比</a>
         <a href="full_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
             class="text-2xl mb-1 block text-zinc-400 fa-solid fa-droplet"></i>全濕食分配</a>
-        <a href="full_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-shapes"></i>全乾食分配</a>
+        <a href="full_dry.html" class="text-sm text-red-500 basis-1/3 md:basis-1/6 p-3 rounded-md">
+          <i class="text-2xl mb-1 block text-red-500 fa-solid fa-shapes"></i>全乾食分配</a>
         <a href="half_wet_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
             class="text-2xl mb-1 block text-zinc-400 fa-solid fa-bowl-food"></i>半濕食分配</a>
       </div>
@@ -56,7 +56,7 @@
 
     <div class="py-5"></div>
 
-    <div class="flex justify-center pb-14">
+    <div class="flex justify-center pb-10">
       <p class="tip-text warning">
         ※ 貓咪是一個需要水分補充的動物，請務必讓貓咪每日有一餐是濕食喔！
       </p>
@@ -68,20 +68,21 @@
 
           <div class="flex flex-row flex-wrap md:flex-nowrap md:space-x-12">
             <div class="basis-full md:basis-1/2">
-              <div class="mb-7">
-                <label class="text-sm md:text-base font-medium block pb-2 relative">請輸入貓咪的體重：
+              <div class="mb-10">
+                <label class="text-sm font-medium block pb-2 relative">
+                  請輸入貓咪的體重
                   <span
                     class="alert-catWeight opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">請檢查是否為數字。</span>
                 </label>
                 <div class="input-style-1">
-                  <input id="catWeight" type="number">
+                  <input type="text" inputmode="decimal" id="catWeight" class="" value="">
                   <span class="unit">kg</span>
                 </div>
                 <small class="color-red">需減重貓 or 過瘦貓，請輸入目標體重</small>
               </div>
 
-              <div class="catStatus-box mb-7">
-                <label class="text-base font-medium block pb-3 relative">請勾選貓咪的目前狀態（擇一）：
+              <div class="catStatus-box mb-10">
+                <label class="text-sm font-medium block pb-3 relative">請勾選貓咪的目前狀態（擇一）
                   <span
                     class="alert-catStatus opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">請勾選貓咪的目前狀態</span>
                 </label>
@@ -183,7 +184,7 @@
               </div>
             </div>
             <div class="basis-full md:basis-1/2">
-              <p class="text-sm md:text-base font-medium block pb-5 relative">請輸入貓糧的營養成分：
+              <p class="text-sm font-medium block pb-5 relative">請輸入貓糧的營養成分
                 <span
                   class="alert-dryElement opacity-0 h-0 transition-all absolute left-0 bottom-full text-xs z-10 font-normal bg-red-100 py-1 px-2">
                   請檢查是否皆填寫，並且皆為數字。
@@ -191,16 +192,16 @@
               </p>
               <div class="flex flex-row space-x-4">
                 <div class="basis-1/2 mb-6">
-                  <label class="text-sm block pb-2">飼料1公斤的熱量：</label>
+                  <label class="text-sm block pb-2">貓糧1公斤的熱量</label>
                   <div class="input-style-1">
-                    <input id="dry_1Kg_Kcal" type="number">
+                    <input id="dry_1Kg_Kcal" type="text" inputmode="decimal">
                     <span class="unit">kcal</span>
                   </div>
                 </div>
                 <div class="basis-1/2 mb-6">
-                  <label class="text-sm block pb-2">蛋白質：</label>
+                  <label class="text-sm block pb-2">蛋白質</label>
                   <div class="input-style-1">
-                    <input id="dry_proteinPercent" type="number">
+                    <input id="dry_proteinPercent" type="text" inputmode="decimal">
                     <span class="unit">%</span>
                   </div>
                 </div>
@@ -208,16 +209,16 @@
 
               <div class="flex flex-row space-x-4">
                 <div class="basis-1/2 mb-6">
-                  <label class="text-sm block pb-2">脂肪：</label>
+                  <label class="text-sm block pb-2">脂肪</label>
                   <div class="input-style-1">
-                    <input id="dry_fatPercent" type="number">
+                    <input id="dry_fatPercent" type="text" inputmode="decimal">
                     <span class="unit">%</span>
                   </div>
                 </div>
                 <div class="basis-1/2 mb-6">
-                  <label class="text-sm block pb-2">纖維：</label>
+                  <label class="text-sm block pb-2">纖維</label>
                   <div class="input-style-1">
-                    <input id="dry_fiberPercent" type="number">
+                    <input id="dry_fiberPercent" type="text" inputmode="decimal">
                     <span class="unit">%</span>
                   </div>
                 </div>
@@ -225,16 +226,16 @@
 
               <div class="flex flex-row space-x-4">
                 <div class="basis-1/2 mb-6">
-                  <label class="text-sm block pb-2">灰份：</label>
+                  <label class="text-sm block pb-2">灰份</label>
                   <div class="input-style-1">
-                    <input id="dry_ashPercent" type="number">
+                    <input id="dry_ashPercent" type="text" inputmode="decimal">
                     <span class="unit">%</span>
                   </div>
                 </div>
                 <div class="basis-1/2 mb-6">
-                  <label class="text-sm block pb-2">水分：</label>
+                  <label class="text-sm block pb-2">水分</label>
                   <div class="input-style-1">
-                    <input id="dry_waterPercent" type="number">
+                    <input id="dry_waterPercent" type="text" inputmode="decimal">
                     <span class="unit">%</span>
                   </div>
                 </div>
@@ -244,8 +245,8 @@
           <div class="flex flex-row justify-center pt-4 border-t border-gray-300">
             <div class="basis-full md:basis-1/2">
               <div class="flex flex-row space-x-4">
-                <button type="button" id="cleanAllValue_btn" class="button-dark basis-1/2">清除</button>
-                <button type="button" id="fullDryMath_btn" class="button-green basis-1/2">開始計算</button>
+                <button type="button" id="cleanAllValue_btn" class="button-lightRed basis-1/3">清除</button>
+                <button type="button" id="fullDryMath_btn" class="button-red basis-2/3">開始計算</button>
               </div>
             </div>
           </div>
@@ -259,7 +260,7 @@
         <div class="opacity-0 h-0 transition-all w-full" id="card_result">
           <div class="card-style-2 w-full">
             <div class="header">
-              <p class="title" data-cata="全乾食分配">全乾食的分配結果</p>
+              <p class="title" data-cata="全乾食分配">計算結果</p>
             </div>
             <div class="body">
               <div class="full_dry_block">
@@ -267,7 +268,7 @@
                   <div class="title-box">
                     <p class="text">
                       每日需吃
-                      <span class="color-red text-xl border-red-400 border-b-2 px-3" id="dry-item"></span>
+                      <span class="text-red-500 text-lg border-red-500 border-b-2 px-3" id="dry-item"></span>
                       公克的貓糧，<br>才能達到每日所需熱量。
                     </p>
                   </div>
@@ -307,8 +308,8 @@
                 <div class="warning_txt_box pt-5"></div>
               </div>
               <div class="flex flex-row space-x-4 mt-7">
-                <button type="button" id="editFullDryMath_btn" class="button-dark basis-1/2">重新計算</button>
-                <button type="button" id="save_btn" class="button-green basis-1/2">加入收藏</button>
+                <button type="button" id="editFullDryMath_btn" class="button-dark basis-1/3">重新計算</button>
+                <button type="button" id="save_btn" class="button-red basis-2/3">加入收藏</button>
               </div>
             </div>
           </div>
@@ -323,39 +324,40 @@
   <div id="saveLightBox" class="lightbox-style-1 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden">
     <label class="text-base font-medium block pb-2">請輸入名稱：</label>
     <div class="flex flex-row items-center mb-2">
-      <div class="input-style-2 w-2/3 pr-2">
+      <div class="input-style-2 w-1/2 pr-2">
         <input id="saveName" type="text">
       </div>
-      <p class="category-text w-1/3 text-sm"></p>
+      <p class="category-text w-1/2 text-sm"></p>
     </div>
     <p class="text-xs">為了方便辨識，建議填寫。<br />
-      ex: <span class="color-darkergreen">喵喵</span>的一日所需營養 or
-      <span class="color-darkergreen">喵喵和xx罐頭</span>半濕食分配
+      ex: <span class="text-red-500">喵喵</span>的一日所需營養 or
+      <span class="text-red-500">喵喵和xx罐頭</span>半濕食分配
     </p>
     <div class="flex flex-row space-x-4 mt-7">
-      <button type="button" class="cancel_btn button-dark basis-1/2">取消</button>
-      <button type="button" class="sbumit_btn button-green basis-1/2">加入</button>
+      <button type="button" class="cancel_btn button-lightRed basis-1/2">取消</button>
+      <button type="button" class="sbumit_btn button-red basis-1/2">加入</button>
     </div>
   </div>
 
   <!-- 我的收藏 -->
   <div id="mySaveBox"
-    class="fixed top-0 -right-full w-full md:w-1/2 lg:w-4/12 h-full bg-gray-50 transition-all duration-300 ease-linear border-l border-solid border-gray-300">
+    class="fixed top-0 -right-full w-full md:w-1/2 lg:w-4/12 h-full bg-gray-50 transition-all duration-300 ease-linear border-l border-solid border-gray-300 pb-7">
 
-    <div class="pt-16 px-3 pb-5 border-b border-solid border-gray-300">
-      <div class="flex gap-x-1 gap-y-1 flex-wrap">
+    <div class="pt-16 px-7 pb-7">
+      <div class="flex gap-x-3 gap-y-3 flex-wrap">
         <a href="#" data-filterName="的一日所需營養"
-          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">一日所需營養</a>
+          class="filterButton whitespace-nowrap min-h-0 h-9 justify-center text-sm px-3 w-3-3 rounded-md">每日營養
+        </a>
         <a href="#" data-filterName="貓罐乾物比"
-          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">貓罐乾物比</a>
+          class="filterButton whitespace-nowrap min-h-0 h-9 justify-center text-sm px-3 w-3-3 rounded-md">貓罐乾物比</a>
         <a href="#" data-filterName="貓糧乾物比"
-          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">貓糧乾物比</a>
+          class="filterButton whitespace-nowrap min-h-0 h-9 justify-center text-sm px-3 w-3-3 rounded-md">貓糧乾物比</a>
         <a href="#" data-filterName="全濕食分配"
-          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">全濕食分配</a>
+          class="filterButton whitespace-nowrap min-h-0 h-9 justify-center text-sm px-3 w-3-3 rounded-md">全濕食分配</a>
         <a href="#" data-filterName="全乾食分配"
-          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">全乾食分配</a>
+          class="filterButton whitespace-nowrap min-h-0 h-9 justify-center text-sm px-3 w-3-3 rounded-md">全乾食分配</a>
         <a href="#" data-filterName="半濕食分配"
-          class="filterButton button-outline-green-icon whitespace-nowrap min-h-0 h-9 justify-center text-xs px-3 w-3-3">半濕食分配</a>
+          class="filterButton whitespace-nowrap min-h-0 h-9 justify-center text-sm px-3 w-3-3 rounded-md">半濕食分配</a>
       </div>
       <div class="text-right mt-3">
         <button type="button" id="showAllButton" class="text-xs p-1 text-gray-400 underline hidden">Show All</button>
@@ -381,8 +383,8 @@
       <p class="category-text w-1/2 text-sm"></p>
     </div>
     <div class="flex flex-row space-x-4 mt-7">
-      <button type="button" class="cancel_btn button-dark basis-1/2">取消</button>
-      <button type="button" class="submit_btn button-green basis-1/2">確定</button>
+      <button type="button" class="cancel_btn button-dark basis-1/3">取消</button>
+      <button type="button" class="submit_btn button-red basis-2/3">確定</button>
     </div>
   </div>
 

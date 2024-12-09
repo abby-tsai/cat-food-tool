@@ -55,7 +55,7 @@
   }
 
   .button-gray {
-    background-color: #F4F4F6;
+    background-color: #f1f1f1;
     font-size: 14px;
     min-height: 45px;
     @apply px-4 rounded font-normal inline-flex items-center justify-center
@@ -225,11 +225,11 @@
   }
 
   .card-style-2 .body .title-box {
-    @apply pb-8 text-center
+    @apply mb-3 p-3 text-center bg-zinc-100 rounded-md
   }
 
   .card-style-2 .body .title-box .text {
-    @apply text-base
+    @apply text-sm text-zinc-600
   }
 
   .card-style-3 {
@@ -242,10 +242,6 @@
 
   .card-style-4 .header {
     @apply py-2
-  }
-
-  .card-style-4 .header .title {
-    @apply font-medium
   }
 
   .card-style-4 .header .more {
@@ -333,7 +329,7 @@
 
   /* width custom */
   .w-3-3 {
-    width: calc(100% / 3 - 3px);
+    width: calc(100% / 3 - 9px);
   }
 
   /* RWD setting ----------- */

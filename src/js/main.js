@@ -192,9 +192,9 @@ function addTo_saveBox(saveObj) {
   saveObj.forEach((e, i) => {
     item +=
       `
-      <div class="card card-style-4 w-full px-7 py-5 border-b border-solid border-gray-300 transition-all" style="${e.style}">
+      <div class="card card-style-4 w-full px-7 py-5 transition-all" style="${e.style}">
         <div class="header">
-          <p class="title"><span class="color-darkergreen">${e.name}</span> ${e.categoryName}</p>
+          <p class="title pr-8"><span class="border-b border-black">${e.name}</span> ${e.categoryName}</p>
           <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
           <nav class="more-nav hidden" status="0">
             <ul>
@@ -211,14 +211,14 @@ function addTo_saveBox(saveObj) {
           ${e.categoryName === "的一日所需營養" ?
         `<div class="flex flex-row space-x-4">
             <div class="basis-1/2 mb-4">
-              <label class="text-sm font-medium block">熱量：</label>
+              <label class="text-zinc-400 text-xs md:text-base block pb-1">熱量</label>
                 <div class="input-style-3">
                   <input type="text" readonly value="${e.daliyKcalValue}">
                   <span class="unit">kcal</span>
                 </div>
               </div>
               <div class="basis-1/2 mb-4">
-              <label class="text-sm font-medium block">水分：</label>
+              <label class="text-zinc-400 text-xs md:text-base block pb-1">水分</label>
               <div class="input-style-3">
                 <input type="text" readonly value="${e.daliyWaterValue}">
                 <span class="unit">ml</span>
@@ -226,15 +226,15 @@ function addTo_saveBox(saveObj) {
               </div>
             </div>
             <div class="flex flex-row space-x-4">
-              <div class="basis-1/2 mb-4">
-                <label class="text-sm font-medium block">蛋白質：</label>
+              <div class="basis-1/2">
+                <label class="text-zinc-400 text-xs md:text-base block pb-1">蛋白質</label>
                 <div class="input-style-3">
                   <input type="text" readonly value="${e.daliyProteinValue}">
                   <span class="unit">g</span>
                 </div>
               </div>
-              <div class="basis-1/2 mb-4">
-                <label class="text-sm font-medium block">脂肪：</label>
+              <div class="basis-1/2">
+                <label class="text-zinc-400 text-xs md:text-base block pb-1">脂肪</label>
                 <div class="input-style-3">
                   <input type="text" readonly value="${e.daliyFatValue}">
                   <span class="unit">g</span>
@@ -613,12 +613,12 @@ filterButtons.forEach(item => {
     // 如果 localStorage 的 saveObject 有內容
     if (item.dataset.filtername === localStorage.getItem("filterButton")) {
       // 如果按鈕名稱 與 上一次點選的按鈕名稱 一致，就讓該按鈕要加上 active 樣式
-      item.classList.remove("button-outline-green-icon");
-      item.classList.add("button-green");
+      item.classList.remove("button-gray", "text-zinc-600");
+      item.classList.add("button-red", "text-white");
     } else {
       // 如果 localStorage 的 saveObject 沒有內容，則不要讓按鈕有 active 樣式
-      item.classList.add("button-outline-green-icon");
-      item.classList.remove("button-green");
+      item.classList.add("button-gray", "text-zinc-600");
+      item.classList.remove("button-red", "text-white");
     }
   }
 })
@@ -632,12 +632,12 @@ function showFilterList(e) {
 
   // 全部的篩選按鈕都是預設樣式
   filterButtons.forEach(item => {
-    item.classList.add("button-outline-green-icon");
-    item.classList.remove("button-green");
+    item.classList.add("button-gray", "text-zinc-600");
+    item.classList.remove("button-red", "text-white");
   })
   // 被選取的才要加上 active 樣式
-  e.target.classList.remove("button-outline-green-icon");
-  e.target.classList.add("button-green");
+  e.target.classList.remove("button-gray", "text-zinc-600");
+  e.target.classList.add("button-red", "text-white");
 
   // 把篩選到的按鈕名稱 上傳到localStorage
   localStorage.setItem("filterButton", filterName);
@@ -691,8 +691,8 @@ showAllButton.addEventListener("click", function () {
 
   // 讓每個篩選按鈕，都回到預設樣式
   filterButtons.forEach(item => {
-    item.classList.add("button-outline-green-icon");
-    item.classList.remove("button-green");
+    item.classList.add("button-gray", "text-zinc-600");
+    item.classList.remove("button-red", "text-white");
   })
 
   // 讓“我的收藏”列表，都顯示出來
