@@ -13,6 +13,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <link rel="stylesheet" href="../dist/output.css">
 </head>
 
@@ -28,30 +29,29 @@
       </div>
 
       <a href="index.html" class="text-zinc-500 absolute top-4 left-2">
-        <i class="fa-solid fa-home"></i>
+        <i class="ti ti-home"></i>
       </a>
       <button type="button" id="open_mySaveButton" class="text-red-400 absolute top-4 right-2">
-        <i class="fa-regular fa-heart"></i>
+        <i class="ti ti-heart"></i>
       </button>
     </header>
 
     <div class="py-1"></div>
 
     <div class="text-center">
-      <div class="flex flex-row flex-wrap justify-center mb-2">
+      <div class="flex flex-row flex-wrap justify-center my-2 sm:bg-zinc-50 sm:border border-gray-200 rounded-2xl">
         <a href="daily.html" class="text-sm text-red-500 basis-1/3 md:basis-1/6 p-3 rounded-md">
-          <i class="text-2xl mb-1 block text-red-500 fa-solid fa-weight-scale"></i>每日營養
-        </a>
+          <i class="mb-1 block text-red-500 ti ti-scale-outline"></i>每日營養</a>
         <a href="solid_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-hockey-puck"></i>貓罐乾物比</a>
+            class="mb-1 block text-zinc-400 ti ti-coins"></i>貓罐乾物比</a>
         <a href="solid_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-box-archive"></i>貓糧乾物比</a>
+            class="mb-1 block text-zinc-400 ti ti-paper-bag"></i>貓糧乾物比</a>
         <a href="full_wet.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-droplet"></i>全濕食分配</a>
+            class="mb-1 block text-zinc-400 ti ti-droplet"></i>全濕食分配</a>
         <a href="full_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-shapes"></i>全乾食分配</a>
+            class="mb-1 block text-zinc-400 ti ti-cookie"></i>全乾食分配</a>
         <a href="half_wet_dry.html" class="text-sm color-dark basis-1/3 md:basis-1/6 p-3 rounded-md"><i
-            class="text-2xl mb-1 block text-zinc-400 fa-solid fa-bowl-food"></i>半濕食分配</a>
+            class="mb-1 block text-zinc-400 ti ti-bowl-chopsticks"></i>半濕食分配</a>
       </div>
     </div>
 
@@ -290,8 +290,9 @@
 
     <div id="saveItems" class="saveItems overflow-auto"></div>
 
-    <button type="button" id="close_mySaveButton" class="absolute top-2 right-3 text-xl w-10 h-10"><i
-        class="fa-solid fa-xmark"></i></button>
+    <button type="button" id="close_mySaveButton" class="absolute top-2 right-3 text-xl w-10 h-10">
+      <i class="ti ti-x"></i>
+    </button>
 
   </div>
 

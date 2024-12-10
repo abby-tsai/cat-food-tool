@@ -42,6 +42,10 @@
   .color-gray {
     color: #969696;
   }
+
+  .ti {
+    @apply text-2xl
+  }
 }
 
 @layer components {
@@ -142,7 +146,7 @@
   }
 
   .input-style-2 input {
-    @apply bg-white h-10 w-full px-4 border border-solid border-gray-200 rounded shadow-inner
+    @apply text-sm bg-white h-10 w-full px-4 border border-solid border-gray-200 rounded shadow-inner
   }
 
   .input-style-3 {
@@ -257,7 +261,7 @@
   }
 
   .card-style-4 .header .more-nav li .btn {
-    @apply px-4 py-2 text-xs block text-right w-full
+    @apply px-3 py-1 text-xs flex items-center justify-between text-right w-full
   }
 
   .card-style-4 .header .more-nav li .btn:hover {

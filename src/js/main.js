@@ -195,14 +195,14 @@ function addTo_saveBox(saveObj) {
       <div class="card card-style-4 w-full px-7 py-5 transition-all" style="${e.style}">
         <div class="header">
           <p class="title pr-8"><span class="border-b border-black">${e.name}</span> ${e.categoryName}</p>
-          <button type="button" class="more moreButton"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+          <button type="button" class="more moreButton"><i class="ti ti-dots-vertical text-xl"></i></button>
           <nav class="more-nav hidden" status="0">
             <ul>
               <li>
-                <button type="button" class="btn renameButton" data-num="${i}">重新命名<i class="fa-solid fa-pencil pl-2 text-gray-400"></i></button>
+                <button type="button" class="btn renameButton" data-num="${i}">重新命名<i class="ti ti-pencil text-lg pl-2 text-gray-400"></i></button>
               </li>
               <li>
-                <button type="button" class="btn deleteButton" data-num="${i}">刪除<i class="fa-solid fa-trash-can pl-2 text-gray-400"></i></button>
+                <button type="button" class="btn deleteButton" data-num="${i}">刪除<i class="ti ti-trash text-lg pl-2 text-gray-400"></i></button>
               </li>
             </ul>
           </nav>
