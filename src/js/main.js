@@ -2220,5 +2220,51 @@ function select_block() {
 }
 
 
-// jquery load 共用區域引入
+// 農委會 opendata 寵物食品
+
+const openDataUrl = "https://data.moa.gov.tw/api/v1/PetFood/";
+const fitemWet = "fitem=%E7%BD%90%E9%A0%AD"; // 罐頭
+const fitemDry = "fitem=%E4%B9%BE%E9%A3%BC%E7%B3%A7"; // 乾飼糧
+const fusage = "fusage1=%E8%B2%93"; // 貓
+const wet_newsList = document.querySelector("#wet_newsList");
+const dry_newsList = document.querySelector("#dry_newsList");
+
+// 罐頭
+fetch(`${openDataUrl}?${fusage}&${fitemWet}`).then(function (res) {
+  return res.json();
+}).then(function (data) {
+  showNum = 8;
+  showData = data.Data.slice(0, showNum);
+  showNewsFood("can");
+  wet_newsList.innerHTML = text;
+});
+
+// 乾飼糧
+fetch(`${openDataUrl}?${fusage}&${fitemDry}`).then(function (res) {
+  return res.json();
+}).then(function (data) {
+  showNum = 8;
+  showData = data.Data.slice(0, showNum);
+  showNewsFood("dry");
+  dry_newsList.innerHTML = text;
+});
+
+function showNewsFood(fitem){
+  text = "";
+  showData.forEach((item, key) => {
+    if(item.flegalname.includes("【公司】")) {
+      item.flegalname = item.flegalname.replace("【公司】","")
+    }
+    text += 
+      `<div style="min-width: 150px; width: 150px;">
+      <div class="p-3 pb-1 pt-7 bg-zinc-100 rounded-lg relative">
+        <img src="img/${fitem}_${key + 1}.png" alt="">
+        <span class="absolute top-1 right-1 text-xs text-red-400 px-2 py-1 bg-red-100 rounded-md">${item.fusage1}</span>
+      </div>
+      <h3 class="text-sm color-dark mt-1 overflow-hidden" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">${item.fname}</h3>
+      <span class="text-xs color-gray">${item.flegalname}</span>
+    </div>`;
+  })
+}
+
 
